@@ -1,16 +1,6 @@
-export WIN_HOME=/mnt/c/Users/Khyber
-export WORKSPACE=$WIN_HOME/workspace
+. $CONFIG_DIR/programs.sh
 
-export PATH=$WORKSPACE/npm/global/bin:$PATH
+export PATH=$WORKSPACE_BIN:$NPM_GLOBAL_BIN:$CLANG_BIN:$EMSCRIPTEN_BIN:$LLVM_BIN:$MX_BIN:$CMAKE_BIN:$PATH:$NINJA_BIN:$PYPY_BIN:$PYPY3_BIN
 
-source $WORKSPACE/C++/emsdk/emsdk_set_env.sh
-
-export PATH=$WORKSPACE/C++/emsdk/emscripten/1.37.36:$PATH
-export PATH=$WORKSPACE/C++/llvm/build/bin:$PATH
-
-export PATH=$WORKSPACE/Java/graal/mx:$PATH
-source $WORKSPACE/Java/graal/mx/bash_completion/mx
-
-export JAVA_HOME=/usr/lib/jvm/java-10-oracle/
-
-export PATH=$PATH:$WORKSPACE/C++/ninja
+#. $EMSCRIPTEN_HOME/emsdk_set_env.sh
+#. $MX_HOME/bash_completion/mx

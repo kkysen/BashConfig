@@ -6,7 +6,7 @@ copyReplace() {
 		return 1;
 	fi
 	
-	local dir=${1}
+	local dir=$(basename ${1})  # gets rid of trailing '/'
 	if [ ! -d "${dir}" ]; then
 		echo "directory doesn't exist: ${dir}"
 		return 1;

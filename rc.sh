@@ -99,6 +99,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 sshd_status=$(service ssh status)
 if [[ $sshd_status = *"is not running"* ]]; then
   sudo service ssh --full-restart
