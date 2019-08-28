@@ -13,8 +13,9 @@ alias venv3=". ~/venv3/bin/activate"
 
 alias droplet="ssh root@206.189.226.167"
 alias clac="ssh ks3343@clac.cs.columbia.edu"
-alias cunix="ssh ks3343@cunix.columbia.edu"
-alias huxley="ssh khyber@huxley.ee.columbia.edu" # GPU compute cluster
+alias cunix="ssh cunix"
+alias huxley="ssh huxley" # GPU compute cluster
+alias rcs="ssh rcs"
 
 alias rust="ssh adrianmorriso@dyn-129-236-230-187.dyn.columbia.edu" # Columbia University Wi-Fi
 # 62, 187, keeps changing
@@ -28,4 +29,4 @@ alias makeCaseSensitive="copyReplace"
 
 alias serveFiles="python3 -m http.server"
 
-alias sagi="sudo apt-get install"
+alias sagi="sudo apt install"
