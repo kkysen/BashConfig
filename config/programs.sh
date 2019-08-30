@@ -29,3 +29,8 @@ export PYPY3_BIN=$PYPY_HOME/bin
 
 export CLANG_HOME=$WORKSPACE/C++/clang/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04
 export CLANG_BIN=$CLANG_HOME/bin
+
+export CARGO_HOME=$WORKSPACE/Rust/.cargo
+export CARGO_BIN=$CARGO_HOME/bin
+
+export RUSTUP_HOME=$WORKSPACE/Rust/.rustup
