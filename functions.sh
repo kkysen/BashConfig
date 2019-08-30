@@ -6,4 +6,4 @@
 . $FUNCTIONS/ring.sh
 . $FUNCTIONS/locateFirst.sh
 . $FUNCTIONS/cdLocate.sh
-
+. $FUNCTIONS/gitConvertRemote.sh
