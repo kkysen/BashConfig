@@ -15,7 +15,7 @@ export JAVA_HOME=/usr/lib/jvm/java-10-oracle/
 export MX_HOME=$WORKSPACE/Java/graal/mx
 export MX_BIN=$MX_HOME
 
-export CMAKE_HOME=$WORKSPACE/C++/cmake/cmake-3.14.0-Linux-x86_64
+export CMAKE_HOME=$WORKSPACE/C++/cmake/current
 export CMAKE_BIN=$CMAKE_HOME/bin
 
 export NINJA_HOME=$WORKSPACE/C++/ninja
