@@ -1,7 +1,7 @@
 function convertRemoteUrl(remoteUrl) {
     for (const regex of [
-        /https:\/\/([^\/]+)\/([^\/]+)\/([^\.]+)\.git/,
-        /git@([^:]+):([^\/]+)\/([^\.]+)\.git/,
+        /https:\/\/([^\/]+)\/([^\/]+)\/([^.]+)\.git/,
+        /git@([^:]+):([^\/]+)\/([^.]+)\.git/,
     ]) {
         const match = regex.exec(remoteUrl);
         if (!match) {

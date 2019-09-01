@@ -1,12 +1,21 @@
-# From default .bashrc
+# https://www.shellhacks.com/tune-command-line-history-bash/#comments
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# Save all lines unconditionally
+export HISTCONTROL=
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+export HISTSIZE=10000
+export HISTFILESIZE=-1
+
+export HISTTIMEFORMAT="%c "
+
+# save history even when shell crashes
+if [ -z "${PROMPT_COMMAND}" ]; then
+  export PROMPT_COMMAND="history -a; history -n"
+else
+  export PROMPT_COMMAND="${PROMPT_COMMAND}; history -a;  history -n"
+fi
+
+export HISTFILE="${BASH_DIR}/bash_history.txt"

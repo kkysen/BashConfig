@@ -1,10 +1,10 @@
 ring() {
 	if [ $# -gt 0 ]; then
-		eval ${@};
+		eval "${@}"
 	fi
-	for i in {1..100}; do
-		tput bel;
-		sleep 2; 
+	for _ in {1..100}; do
+		tput bel
+		sleep 2
 	done
 }
 
