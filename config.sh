@@ -3,6 +3,7 @@
 . $CONFIG_DIR/aliases.sh
 . $CONFIG_DIR/fnm.sh
 . $CONFIG_DIR/ssh.sh
+. $CONFIG_DIR/rustc.sh
 
 # If not running interactively, don't do anything
 case $- in

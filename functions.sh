@@ -7,3 +7,4 @@
 . $FUNCTIONS/locateFirst.sh
 . $FUNCTIONS/cdLocate.sh
 . $FUNCTIONS/gitConvertRemote.sh
+. $FUNCTIONS/clone.sh
