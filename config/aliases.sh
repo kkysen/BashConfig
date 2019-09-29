@@ -1,6 +1,8 @@
-alias ll="ls -alF"
-alias la="ls -A"
-alias l="ls -CF"
+LS="lsd"
+alias ls="${LS}"
+alias ll="${LS} -alF"
+alias la="${LS} -A"
+alias l="${LS} -CF"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
