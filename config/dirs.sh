@@ -1,17 +1,21 @@
-export WIN_HOME=/mnt/c/Users/Khyber
-export WORKSPACE=${WIN_HOME}/workspace
-export BASH_DIR=${WORKSPACE}/Bash
-export CONFIG_DIR=${BASH_DIR}/config
-export FUNCTIONS=${BASH_DIR}/functions
+export WIN_DRIVE="/mnt/c"
+export WIN_HOME="${WIN_DRIVE}/Users/Khyber"
+export WORKSPACE="${WIN_HOME}/workspace"
+export BASH_DIR="${WORKSPACE}/Bash"
+export CONFIG_DIR="${BASH_DIR}/config"
+export FUNCTIONS="${BASH_DIR}/functions"
 
-export ONE_DRIVE=${WIN_HOME}/OneDrive
-export ONE_HOME=${ONE_DRIVE}/Khyber
+export PROGRAM_FILES="${WIN_DRIVE}/Program Files"
+export PROGRAM_FILES_X86="${WIN_DRIVE}Program Files (x86)"
 
-export DOCUMENTS=${ONE_HOME}/Documents
-export STUY=${DOCUMENTS}/Stuy
-export COLUMBIA=${DOCUMENTS}/Columbia
-export SEMESTER=${COLUMBIA}/Sophomore/Fall # change every semester
+export ONE_DRIVE="${WIN_HOME}/OneDrive"
+export ONE_HOME="${ONE_DRIVE}/Khyber"
 
-export DOWNLOADS=${WIN_HOME}/Downloads
+export DOCUMENTS="${ONE_HOME}/Documents"
+export STUY="${DOCUMENTS}/Stuy"
+export COLUMBIA="${DOCUMENTS}/Columbia"
+export SEMESTER="${COLUMBIA}/Sophomore/Fall" # change every semester
 
-export DESKTOP=${ONE_HOME}/Desktop
+export DOWNLOADS="${WIN_HOME}/Downloads"
+
+export DESKTOP="${ONE_HOME}/Desktop"
