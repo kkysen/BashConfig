@@ -31,14 +31,15 @@ function convertRemoteUrl(remoteUrl) {
 }
 
 function main() {
+    const {argv, exit} = process;
     try {
-        const [_, __, protocol, currentRemoteUrl] = process.argv;
+        const [_, __, protocol, currentRemoteUrl] = argv;
         const newRemoteUrl = convertRemoteUrl(currentRemoteUrl)(protocol);
         console.log(newRemoteUrl);
-        process.exit(0);
+        exit(0);
     } catch (e) {
         console.error(e.message);
-        process.exit(1);
+        exit(1);
     }
 }
 

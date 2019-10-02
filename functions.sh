@@ -9,4 +9,5 @@
 . $FUNCTIONS/gitConvertRemote.sh
 . $FUNCTIONS/clone.sh
 . $FUNCTIONS/binRust.sh
+. $FUNCTIONS/stripRust.sh
 . $FUNCTIONS/mvd.sh
