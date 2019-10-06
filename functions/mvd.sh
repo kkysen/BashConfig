@@ -21,4 +21,10 @@ mvd() {
     fi
 }
 
+mvdComplete() {
+    local IFS=$'\n'
+    COMPREPLY=($(cd "${DOWNLOADS}" && compgen -f -d "${2}"))
+}
+
 export -f mvd
+complete -F mvdComplete mvd
