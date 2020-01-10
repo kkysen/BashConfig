@@ -34,3 +34,5 @@ export CARGO_HOME=$WORKSPACE/Rust/.cargo
 export CARGO_BIN=$CARGO_HOME/bin
 
 export RUSTUP_HOME=$WORKSPACE/Rust/.rustup
+
+export BINS=$WORKSPACE/Haskell/threadscope

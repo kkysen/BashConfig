@@ -41,3 +41,5 @@ alias chrome="'/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'"
 alias wl="mklink"
 alias lw="mklink"
 alias lns="mklink"
+
+alias LF="endlines unix -r ."

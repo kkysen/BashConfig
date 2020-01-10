@@ -11,3 +11,4 @@
 . $FUNCTIONS/binRust.sh
 . $FUNCTIONS/stripRust.sh
 . $FUNCTIONS/mvd.sh
+. $FUNCTIONS/kudo.sh
