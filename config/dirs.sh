@@ -12,9 +12,10 @@ export ONE_DRIVE="${WIN_HOME}/OneDrive"
 export ONE_HOME="${ONE_DRIVE}/Khyber"
 
 export DOCUMENTS="${ONE_HOME}/Documents"
+export MISC="${DOCUMENTS}/misc"
 export STUY="${DOCUMENTS}/Stuy"
 export COLUMBIA="${DOCUMENTS}/Columbia"
-export SEMESTER="${COLUMBIA}/Sophomore/Fall" # change every semester
+export SEMESTER="${COLUMBIA}/Sophomore/Spring" # change every semester
 
 export DOWNLOADS="${WIN_HOME}/Downloads"
 
