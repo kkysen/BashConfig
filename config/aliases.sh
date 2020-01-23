@@ -1,4 +1,4 @@
-LS="ls"
+LS="exa"
 alias ls="${LS}"
 alias ll="${LS} -alF"
 alias la="${LS} -A"
@@ -37,6 +37,8 @@ alias sagi="sudo apt install"
 alias locate="locate -d ~/mnt.c.Users.db -d ~/mnt.c.Program\ Files.db -d ~/mnt.c.Program\ Files\ \(x86\).db -d /var/lib/mlocate/mlocate.db"
 
 alias chrome="'/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'"
+
+alias open="cmd.exe /C start"
 
 alias wl="mklink"
 alias lw="mklink"
