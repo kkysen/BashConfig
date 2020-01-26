@@ -12,3 +12,4 @@
 . $FUNCTIONS/stripRust.sh
 . $FUNCTIONS/mvd.sh
 . $FUNCTIONS/kudo.sh
+. $FUNCTIONS/open.sh

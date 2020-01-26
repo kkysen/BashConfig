@@ -38,10 +38,12 @@ alias locate="locate -d ~/mnt.c.Users.db -d ~/mnt.c.Program\ Files.db -d ~/mnt.c
 
 alias chrome="'/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'"
 
-alias open="cmd.exe /C start"
+alias open="open_"
 
 alias wl="mklink"
 alias lw="mklink"
 alias lns="mklink"
 
 alias LF="endlines unix -r ."
+
+alias myIP="curl 'https://api6.ipify.org' && echo" # echo for newline
