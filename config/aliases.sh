@@ -45,5 +45,3 @@ alias lw="mklink"
 alias lns="mklink"
 
 alias LF="endlines unix -r ."
-
-alias myIP="curl 'https://api6.ipify.org' && echo" # echo for newline
