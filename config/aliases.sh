@@ -45,3 +45,5 @@ alias lw="mklink"
 alias lns="mklink"
 
 alias LF="endlines unix -r ."
+
+alias js="node --no-warnings --experimental-modules ${FUNCTIONS}/js.mjs"
