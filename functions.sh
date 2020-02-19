@@ -14,3 +14,4 @@
 . $FUNCTIONS/kudo.sh
 . $FUNCTIONS/open.sh
 . $FUNCTIONS/ip.sh
+. $FUNCTIONS/installPython.sh
