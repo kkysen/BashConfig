@@ -46,4 +46,8 @@ alias lns="mklink"
 
 alias LF="endlines unix -r ."
 
-alias js="node --no-warnings --experimental-modules ${FUNCTIONS}/js.mjs"
+alias node-mjs="node --no-warnings --experimental-modules"
+
+alias js="node-mjs ${FUNCTIONS}/js.mjs"
+
+alias arbtt="arbtt-stats --logfile=${APP_DATA}/Roaming/arbtt/capture.log --categorizefile=${APP_DATA}/Roaming/arbtt/categorize.cfg"
