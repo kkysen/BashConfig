@@ -19,3 +19,7 @@ else
 fi
 
 export HISTFILE="${BASH_DIR}/bash_history.txt"
+
+alias ignore=""
+alias i=ignore
+export HISTIGNORE=ignore
