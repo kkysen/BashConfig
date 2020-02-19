@@ -16,5 +16,7 @@ esac
 . $CONFIG_DIR/colors.sh
 . $CONFIG_DIR/completion.sh
 . $CONFIG_DIR/title.sh
+. $CONFIG_DIR/perl.sh
 
-. ~/.config/broot/launcher/bash/br
+. $CONFIG_DIR/broot.sh
+. $CONFIG_DIR/brew.sh
