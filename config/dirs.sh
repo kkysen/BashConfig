@@ -10,6 +10,7 @@ export PROGRAM_FILES_X86="${WIN_DRIVE}/Program Files (x86)"
 
 export ONE_DRIVE="${WIN_HOME}/OneDrive"
 export ONE_HOME="${ONE_DRIVE}/Khyber"
+export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
 
 export DOCUMENTS="${ONE_HOME}/Documents"
 export MISC="${DOCUMENTS}/misc"

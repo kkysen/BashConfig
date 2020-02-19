@@ -15,3 +15,4 @@
 . $FUNCTIONS/open.sh
 . $FUNCTIONS/ip.sh
 . $FUNCTIONS/installPython.sh
+. $FUNCTIONS/fopen.sh

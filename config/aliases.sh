@@ -44,10 +44,13 @@ alias wl="mklink"
 alias lw="mklink"
 alias lns="mklink"
 
-alias LF="endlines unix -r ."
+alias LF="endlines unix -r"
 
 alias node-mjs="node --no-warnings --experimental-modules"
 
 alias js="node-mjs ${FUNCTIONS}/js.mjs"
 
 alias arbtt="arbtt-stats --logfile=${APP_DATA}/Roaming/arbtt/capture.log --categorizefile=${APP_DATA}/Roaming/arbtt/categorize.cfg"
+
+alias yt2mp3="youtube-dl --extract-audio --audio-format mp3 -o '${ONE_MUSIC}/%(title)s.%(ext)s'"
+alias music="fopen ${ONE_MUSIC}"
