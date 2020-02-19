@@ -6,7 +6,7 @@ export CONFIG_DIR="${BASH_DIR}/config"
 export FUNCTIONS="${BASH_DIR}/functions"
 
 export PROGRAM_FILES="${WIN_DRIVE}/Program Files"
-export PROGRAM_FILES_X86="${WIN_DRIVE}Program Files (x86)"
+export PROGRAM_FILES_X86="${WIN_DRIVE}/Program Files (x86)"
 
 export ONE_DRIVE="${WIN_HOME}/OneDrive"
 export ONE_HOME="${ONE_DRIVE}/Khyber"
@@ -18,5 +18,5 @@ export COLUMBIA="${DOCUMENTS}/Columbia"
 export SEMESTER="${COLUMBIA}/Sophomore/Spring" # change every semester
 
 export DOWNLOADS="${WIN_HOME}/Downloads"
-
 export DESKTOP="${ONE_HOME}/Desktop"
+export APP_DATA="${WIN_HOME}/AppData"
