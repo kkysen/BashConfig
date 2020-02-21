@@ -1,6 +1,8 @@
 fopen() {
     # find a file using sk and open it
     local dir=${1}
+    local opener=${2}
+
     if [[ "${dir}" == "" ]]; then
         dir="."
     fi
@@ -11,8 +13,13 @@ fopen() {
         return
     fi
     local path="${dir}/${file}"
-    local winPath=$(wslpath -m "${path}")
-    open "${winPath}"
+    if [[ "${opener}" == "" ]]; then
+        local winPath=$(wslpath -m "${path}")
+        open "${winPath}"
+    else
+        ${opener} "${path}"
+    fi
 }
 
 export -f fopen
+alias fo=fopen
