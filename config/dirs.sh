@@ -1,5 +1,6 @@
 export WIN_DRIVE="/mnt/c"
 export WIN_HOME="${WIN_DRIVE}/Users/Khyber"
+export WIN="${WIN_HOME}"
 export WORKSPACE="${WIN_HOME}/workspace"
 export BASH_DIR="${WORKSPACE}/Bash"
 export CONFIG_DIR="${BASH_DIR}/config"
@@ -9,6 +10,7 @@ export PROGRAM_FILES="${WIN_DRIVE}/Program Files"
 export PROGRAM_FILES_X86="${WIN_DRIVE}/Program Files (x86)"
 
 export ONE_DRIVE="${WIN_HOME}/OneDrive"
+export ONE="${ONE_DRIVE}"
 export ONE_HOME="${ONE_DRIVE}/Khyber"
 export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
 
