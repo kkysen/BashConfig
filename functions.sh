@@ -16,3 +16,4 @@
 . $FUNCTIONS/ip.sh
 . $FUNCTIONS/installPython.sh
 . $FUNCTIONS/fopen.sh
+. $FUNCTIONS/chrome.sh
