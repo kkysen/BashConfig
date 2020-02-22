@@ -25,9 +25,6 @@ alias unruly="ssh emmettwhitlock@dyn-160-39-237-53.dyn.columbia.edu"
 
 alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
 
-# shellcheck disable=SC2139
-alias mmake="node ${WORKSPACE}/TS/mmake/src/ts/core/main.js"
-
 alias makeCaseSensitive="copyReplace"
 
 alias serveFiles="python3 -m http.server"
