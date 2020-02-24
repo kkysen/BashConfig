@@ -1,11 +1,6 @@
 ring() {
-	if [ $# -gt 0 ]; then
-		eval "${@}"
-	fi
-	for _ in {1..100}; do
-		tput bel
-		sleep 2
-	done
+	eval "${@}"
+	notify "-Text \"${@}\" -Sound \"Alarm2\" -SnoozeAndDismiss"
 }
 
 export -f ring

@@ -1,9 +1,11 @@
 . $FUNCTIONS/bashrc.sh
+. $FUNCTIONS/notify.sh
+. $FUNCTIONS/alert.sh
+. $FUNCTIONS/ring.sh
 . $FUNCTIONS/copyAndLink.sh
 . $FUNCTIONS/copyReplace.sh
 . $FUNCTIONS/path.sh
 . $FUNCTIONS/copyLink.sh
-. $FUNCTIONS/ring.sh
 . $FUNCTIONS/locateFirst.sh
 . $FUNCTIONS/cdLocate.sh
 . $FUNCTIONS/gitConvertRemote.sh
