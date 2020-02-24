@@ -1,10 +1,3 @@
-LS="exa"
-alias ls="${LS}"
-alias ll="${LS} -alF"
-alias la="${LS} -A"
-alias l="${LS} -CF"
-
-alias lla="ls -al"
 
 alias venv=". ~/venv/bin/activate"
 alias venv3=". ~/venv3/bin/activate"

@@ -19,3 +19,4 @@
 . $FUNCTIONS/installPython.sh
 . $FUNCTIONS/fopen.sh
 . $FUNCTIONS/chrome.sh
+. $FUNCTIONS/ls.sh
