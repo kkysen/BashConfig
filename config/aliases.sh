@@ -22,8 +22,6 @@ alias sagi="sudo apt install"
 
 alias locate="locate -d ~/mnt.c.Users.db -d ~/mnt.c.Program\ Files.db -d ~/mnt.c.Program\ Files\ \(x86\).db -d /var/lib/mlocate/mlocate.db"
 
-alias open="open_"
-
 alias wl="mklink"
 alias lw="mklink"
 alias lns="mklink"

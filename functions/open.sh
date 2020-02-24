@@ -1,5 +1,5 @@
-open_() {
+function open() {
 	cmd.exe /c start "Launching from bash" "$*"
 }
 
-export -f open_
+export -f open
