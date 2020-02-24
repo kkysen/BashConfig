@@ -1,4 +1,5 @@
 bashrc() {
+	# TODO if given a file in ${FUNCTIONS}, reload only that file
 	if [[ "${1}" == "edit" ]]; then
 		code ${BASH_DIR}
 	elif [[ "${1}" == "code" ]]; then

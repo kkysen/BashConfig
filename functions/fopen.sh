@@ -21,5 +21,9 @@ fopen() {
     fi
 }
 
+fo() {
+    fopen ${@}
+}
+
 export -f fopen
-alias fo=fopen
+export -f fo

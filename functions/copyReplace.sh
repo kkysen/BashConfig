@@ -18,3 +18,9 @@ copyReplace() {
 }
 
 export -f copyReplace
+
+makeCaseSensitive() {
+	copyReplace ${@}
+}
+
+export -f makeCaseSensitive
