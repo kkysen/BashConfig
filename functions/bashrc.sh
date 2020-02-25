@@ -1,12 +1,5 @@
 bashrc() {
-	# if given a file in ${FUNCTIONS}, reload only that file
 	local arg="${1}"
-	local path="${FUNCTIONS}/${arg}"
-	if [[ -f "${path}" ]]; then
-		. "${path}"
-		return
-	fi
-
 	case "${arg}" in
 		"edit" | "code")
 			code "${BASH_DIR}"
@@ -17,9 +10,22 @@ bashrc() {
 		"")
 			. ~/.bashrc
 			;;
-		"-h" | "-help" | "--help" | *)
-			echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | <file in ${FUNCTIONS}>]"
+		"-h" | "-help" | "--help")
+			echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | <bash script in ${FUNCTIONS}>]"
 			return 1
+			;;
+		*)
+			# if given a file in ${FUNCTIONS}, reload only that file
+			local path="${FUNCTIONS}/${arg}"
+			if [[ ! -f "${path}" ]]; then
+				echo "\`${path}\` does not exist"
+				return 1
+			fi
+			if [[ ! "${path}" == *.sh ]]; then
+				echo "\`${path}\` is not a bash script ending in .sh"
+				return 1
+			fi
+			. "${path}"
 			;;
 	esac
 }
