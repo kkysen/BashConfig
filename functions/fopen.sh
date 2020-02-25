@@ -35,3 +35,19 @@ fo() {
 
 export -f fopen
 export -f fo
+
+music() {
+    fopen ${ONE_MUSIC} ${@}
+}
+
+one() {
+    fo ${ONE} ${@}
+}
+
+downloads() {
+    fo ${DOWNLOADS} ${@}
+}
+
+export -f music
+export -f one
+export -f downloads
