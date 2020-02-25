@@ -12,7 +12,11 @@ fopen() {
     if [[ "${file}" == "" ]]; then
         return
     fi
-    local path="${dir}/${file}"
+    if [[ "${dir}" == "." ]]; then
+        local path="${file}"
+    else
+        local path="${dir}/${file}"
+    fi
     if [[ "${opener}" == "" ]]; then
         if [[ -d "${path}" ]]; then
             if [[ "${dir}" == "." ]]; then
@@ -22,7 +26,9 @@ fopen() {
             fi
         else
             local winPath=$(wslpath -m "${path}")
+            cd "${WIN}"
             open "${winPath}"
+            cd ~-
         fi
     else
         ${opener} "${path}"
