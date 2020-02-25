@@ -14,8 +14,16 @@ fopen() {
     fi
     local path="${dir}/${file}"
     if [[ "${opener}" == "" ]]; then
-        local winPath=$(wslpath -m "${path}")
-        open "${winPath}"
+        if [[ -d "${path}" ]]; then
+            if [[ "${dir}" == "." ]]; then
+                open .
+            else
+                cd "${path}"
+            fi
+        else
+            local winPath=$(wslpath -m "${path}")
+            open "${winPath}"
+        fi
     else
         ${opener} "${path}"
     fi
