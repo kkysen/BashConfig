@@ -7,7 +7,7 @@ mvd() {
     # shellcheck disable=SC2153
     local downloads="${DOWNLOADS}"
     if [[ "$#" -eq 0 ]]; then
-        echo "Usage: mvd [destDir] [files in ${downloads}]"
+        echo "Usage: ${FUNCNAME[0]} [destDir] [files in ${downloads}]"
         return 1
     elif [[ "$#" -eq 1 ]]; then
         local dest="."
@@ -21,10 +21,10 @@ mvd() {
     fi
 }
 
-mvdComplete() {
+mvd_complete() {
     local IFS=$'\n'
-    COMPREPLY=($(cd "${DOWNLOADS}" && compgen -f -d "${2}"))
+    COMPREPLY+=($(cd "${DOWNLOADS}" && compgen -f -- "${COMP_WORDS[1]}"))
 }
 
 export -f mvd
-complete -F mvdComplete mvd
+complete -F complete mvd_complete
