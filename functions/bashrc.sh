@@ -1,3 +1,5 @@
+# TODO allow reloading scripts in ${CONFIG_DIR} as well, not just ${FUNCTIONS}
+
 reloadScript() {
 	# if given a file in ${FUNCTIONS}, reload only that file
 	local file="${1}"
@@ -22,6 +24,12 @@ bashrc() {
 		"cd" | "go")
 			cd "${BASH_DIR}"
 			;;
+		"func" | "functions")
+			. "${BASH_DIR}/functions.sh"
+			;;
+		"config")
+			. "${BASH_DIR}/config.sh"
+			;;
 		"")
 			. ~/.bashrc
 			;;
@@ -30,7 +38,7 @@ bashrc() {
 			reloadScript "${file}"
 			;;
 		"-h" | "-help" | "--help")
-			echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | <bash script in ${FUNCTIONS}>]"
+			echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | func | functions | config | <bash script in ${FUNCTIONS}>]"
 			return 1
 			;;
 		*)
@@ -40,7 +48,7 @@ bashrc() {
 }
 
 bashrc_complete() {
-	COMPREPLY+=($(compgen -W "edit code cd go sh -h -help --help" -- "${COMP_WORDS[1]}"))
+	COMPREPLY+=($(compgen -W "edit code cd go func functions config sh -h -help --help" -- "${COMP_WORDS[1]}"))
 	local IFS=$'\n'
     COMPREPLY+=($(cd "${FUNCTIONS}" && compgen -f -X '!*.sh' -- "${COMP_WORDS[1]}"))
 }
