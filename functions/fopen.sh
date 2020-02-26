@@ -7,7 +7,7 @@ fopen() {
         dir="."
     fi
     cd "${dir}"
-    local file=$(sk)
+    local file="$(sk)"
     cd ~-
     if [[ "${file}" == "" ]]; then
         return
@@ -25,7 +25,7 @@ fopen() {
                 cd "${path}"
             fi
         else
-            local winPath=$(wslpath -m "${path}")
+            local winPath=$(wslpath -m -a "${path}")
             cd "${WIN}"
             open "${winPath}"
             cd ~-
