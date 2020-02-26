@@ -34,5 +34,6 @@ cd ${FUNCTIONS}
 . locate.sh
 . configCache.sh
 . bottom.sh
+. crateName.sh
 
 cd ~-
