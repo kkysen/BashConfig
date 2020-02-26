@@ -32,5 +32,6 @@ cd ${FUNCTIONS}
 . sagi.sh
 . serveFiles.sh
 . locate.sh
+. configCache.sh
 
 cd ~-
