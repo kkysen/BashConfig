@@ -1,11 +1,16 @@
 # TODO change this to the Rust version
 locate() {
-    command locate \
-        -d "${HOME}/mnt.c.Users.db" \
-        -d "${HOME}/mnt.c.Program Files.db" \
-        -d "${HOME}/mnt.c.Program Files (x86).db" \
-        -d "/var/lib/mlocate/mlocate.db" \
-        ${@}
+    lolcate ${@}
+}
+
+skall() {
+    SKIM_DEFAULT_COMMAND="lolcate" sk ${@}
+}
+
+fall() {
+    SKIM_DEFAULT_COMMAND="lolcate" fo . ${@}
 }
 
 export -f locate
+export -f skall
+export -f fall
