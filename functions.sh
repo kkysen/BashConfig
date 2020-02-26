@@ -33,5 +33,6 @@ cd ${FUNCTIONS}
 . serveFiles.sh
 . locate.sh
 . configCache.sh
+. bottom.sh
 
 cd ~-
