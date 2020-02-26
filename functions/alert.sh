@@ -1,5 +1,5 @@
 alert() {
-	eval "${@}"
+	${@}
 	notify "-Text \"${@}\""
 }
 
