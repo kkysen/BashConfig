@@ -25,7 +25,7 @@ export PYPY_HOME=$WORKSPACE/Python/bin/pypy2-v6.0.0-linux64
 export PYPY_BIN=$PYPY_HOME/bin
 
 export PYPY3_HOME=$WORKSPACE/Python/bin/pypy3-v6.0.0-linux64
-export PYPY3_BIN=$PYPY_HOME/bin
+export PYPY3_BIN=$PYPY3_HOME/bin
 
 export CLANG_HOME=$WORKSPACE/C++/clang/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-16.04
 export CLANG_BIN=$CLANG_HOME/bin
@@ -36,3 +36,5 @@ export CARGO_BIN=$CARGO_HOME/bin
 export RUSTUP_HOME=$WORKSPACE/Rust/.rustup
 
 export BINS=$WORKSPACE/Haskell/threadscope
+
+export FNM_BIN="${HOME}/.fnm"

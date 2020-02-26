@@ -1,9 +1,19 @@
-. $CONFIG_DIR/sshd.sh
-. $CONFIG_DIR/path.sh
-. $CONFIG_DIR/aliases.sh
-. $CONFIG_DIR/fnm.sh
-. $CONFIG_DIR/ssh.sh
-. $CONFIG_DIR/rustc.sh
+. "${FUNCTIONS}/configCache.sh"
+
+cd "${CONFIG_DIR}"
+
+. path.sh
+. sshd.sh
+. aliases.sh
+. fnm.sh
+. ssh.sh
+. rustc.sh
+. perl.sh
+. broot.sh
+configCache brew
+. pkgConfig.sh
+
+cd ~-
 
 # If not running interactively, don't do anything
 case $- in
@@ -11,12 +21,12 @@ case $- in
       *) return;;
 esac
 
-. $CONFIG_DIR/history.sh
-. $CONFIG_DIR/misc.sh
-. $CONFIG_DIR/colors.sh
-. $CONFIG_DIR/completion.sh
-. $CONFIG_DIR/title.sh
-. $CONFIG_DIR/perl.sh
+cd "${CONFIG_DIR}"
 
-. $CONFIG_DIR/broot.sh
-. $CONFIG_DIR/brew.sh
+. history.sh
+. misc.sh
+. colors.sh
+. completion.sh
+. title.sh
+
+cd ~-

@@ -1,1 +1,1 @@
-eval $(~/.linuxbrew/bin/brew shellenv)
+brew shellenv
