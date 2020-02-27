@@ -1,3 +1,11 @@
+recordRun() {
+    history -a
+    local current="$(tac $HISTFILE | head -n 1)"
+    history -s ${current}
+    history -s "${@}"
+    "${@}"
+}
+
 fopen() {
     # find a file using sk and open it
     local dir=${1}
@@ -27,11 +35,11 @@ fopen() {
         else
             local winPath=$(wslpath -m -a "${path}")
             cd "${WIN}"
-            open "${winPath}"
+            recordRun open "${winPath}"
             cd ~-
         fi
     else
-        ${opener} "${path}"
+        recordRun ${opener} "${path}"
     fi
 }
 
