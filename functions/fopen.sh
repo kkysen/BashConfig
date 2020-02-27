@@ -1,8 +1,8 @@
 recordRun() {
     history -a
     local current="$(tac $HISTFILE | head -n 1)"
-    history -s ${current}
     history -s "${@}"
+    history -s ${current}
     "${@}"
 }
 
