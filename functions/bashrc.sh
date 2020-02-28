@@ -38,7 +38,7 @@ bashrc() {
 			reloadScript "${file}"
 			;;
 		"-h" | "-help" | "--help")
-			echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | func | functions | config | <bash script in ${FUNCTIONS}>]"
+			>&2 echo "Usage: ${FUNCNAME[0]} [edit | code | cd | go | func | functions | config | <bash script in ${FUNCTIONS}>]"
 			return 1
 			;;
 		*)

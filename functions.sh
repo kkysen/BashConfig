@@ -21,7 +21,7 @@ cd ${FUNCTIONS}
 . installPython.sh
 . fopen.sh
 . music.sh
-. chrome.sh
+. browsers.sh
 . ls.sh
 . valgrind.sh
 . LF.sh
@@ -35,5 +35,6 @@ cd ${FUNCTIONS}
 . configCache.sh
 . bottom.sh
 . crateName.sh
+. tennis.sh
 
 cd ~-
