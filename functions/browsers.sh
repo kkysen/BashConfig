@@ -2,7 +2,7 @@ browserAt() {
     local browserPath="${1}"
     local path="${2}"
     local winPath=$(wslpath -m "${path}")
-    "${browserPath}" "${winPath}"
+    "${browserPath}" "${winPath}" &
 }
 
 browserPath() {
