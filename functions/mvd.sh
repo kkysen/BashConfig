@@ -27,4 +27,4 @@ mvd_complete() {
 }
 
 export -f mvd
-complete -F complete mvd_complete
+complete -F mvd_complete mvd
