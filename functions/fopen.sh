@@ -62,6 +62,11 @@ downloads() {
     fo ${DOWNLOADS} ${@}
 }
 
+work() {
+    fo ${WORKSPACE} ${@}
+}
+
 export -f music
 export -f one
 export -f downloads
+export -f work

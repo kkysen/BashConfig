@@ -21,6 +21,7 @@ cd ${FUNCTIONS}
 . installPython.sh
 . fopen.sh
 . music.sh
+. gui.sh
 . browsers.sh
 . ls.sh
 . valgrind.sh

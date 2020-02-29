@@ -1,10 +1,3 @@
-browserAt() {
-    local browserPath="${1}"
-    local path="${2}"
-    local winPath=$(wslpath -m "${path}")
-    "${browserPath}" "${winPath}" &
-}
-
 browserPath() {
     local browser="${1}"
     case "${browser}" in
@@ -34,7 +27,7 @@ browse() {
     if [[ "${path}" == "" ]]; then
         return 1
     fi
-    browserAt "${path}" "${@:2}"
+    guiAt "${path}" "${@:2}"
 }
 
 chrome() {
