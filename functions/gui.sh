@@ -1,5 +1,5 @@
 guiAt() {
-    ("${@}" &) 2>/dev/null
+    (run "${@}" &) 2>/dev/null
 }
 
 export -f guiAt
