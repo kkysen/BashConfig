@@ -1,8 +1,5 @@
 guiAt() {
-    local guiPath="${1}"
-    local path="${2}"
-    local winPath=$(wslpath -m "${path}")
-    ("${guiPath}" "${winPath}" &)
+    ("${@}" &) 2>/dev/null
 }
 
 export -f guiAt

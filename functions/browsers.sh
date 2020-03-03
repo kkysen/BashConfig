@@ -21,29 +21,32 @@ browserPath() {
     esac
 }
 
+# default browsers
+export BROWSER=chrome
+
 browse() {
-    local browser="${1}"
+    local browser="${BROWSER}"
     local path=$(browserPath "${browser}") || exit 1
     if [[ "${path}" == "" ]]; then
         return 1
     fi
-    guiAt "${path}" "${@:2}"
+    guiAt "${path}" "${@}"
 }
 
 chrome() {
-    browse chrome "${@}"
+    BROWSER=chrome browse "${@}"
 }
 
 firefox() {
-    browse firefox "${@}"
+    BROWSER=firefox browse "${@}"
 }
 
 brave() {
-    browse brave "${@}"
+    BROWSER=brave browse "${@}"
 }
 
 edge() {
-    browse edge "${@}"
+    BROWSER=edge browse "${@}"
 }
 
 export -f browserPath

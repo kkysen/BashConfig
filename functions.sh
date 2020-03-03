@@ -37,5 +37,7 @@ cd ${FUNCTIONS}
 . bottom.sh
 . crateName.sh
 . tennis.sh
+. execute.sh
+. timer.sh
 
 cd ~-
