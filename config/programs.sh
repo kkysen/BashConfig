@@ -38,3 +38,7 @@ export RUSTUP_HOME=$WORKSPACE/Rust/.rustup
 export BINS=$WORKSPACE/Haskell/threadscope
 
 export FNM_BIN="${HOME}/.fnm"
+
+export PYENV_ROOT=$WORKSPACE/Python/pyenv
+export PYENV_HOME=$PYENV_ROOT
+export PYENV_BIN=$PYENV_ROOT/bin

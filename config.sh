@@ -12,6 +12,7 @@ cd "${CONFIG_DIR}"
 . broot.sh
 configCache brew
 . pkgConfig.sh
+. pyenv.sh
 
 cd ~-
 
