@@ -1,14 +1,14 @@
 # TODO change this to the Rust version
 locate() {
-    lolcate ${@}
+    lolcate "${@}"
 }
 
 skall() {
-    SKIM_DEFAULT_COMMAND="lolcate" sk ${@}
+    SKIM_DEFAULT_COMMAND="lolcate" sk "${@}"
 }
 
 fall() {
-    SKIM_DEFAULT_COMMAND="lolcate" fo . ${@}
+    SKIM_DEFAULT_COMMAND="lolcate" fo . "${@}"
 }
 
 export -f locate

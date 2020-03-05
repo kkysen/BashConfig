@@ -54,7 +54,7 @@ bashrc_complete() {
 }
 
 rc() {
-	bashrc ${@}
+	bashrc "${@}"
 }
 
 export -f bashrc

@@ -1,19 +1,19 @@
 export LS="exa"
 
 function ls() {
-    ${LS} ${@}
+    ${LS} "${@}"
 }
 
 ll() {
-    ${LS} -alF ${@}
+    ${LS} -alF "${@}"
 }
 
 la() {
-    ${LS} -A ${@}
+    ${LS} -A "${@}"
 }
 
 l() {
-    ${LS} -CF ${@}
+    ${LS} -CF "${@}"
 }
 
 export -f ls

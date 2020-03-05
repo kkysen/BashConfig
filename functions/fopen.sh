@@ -44,26 +44,26 @@ fopen() {
 }
 
 fo() {
-    fopen ${@}
+    fopen "${@}"
 }
 
 export -f fopen
 export -f fo
 
 music() {
-    fopen ${ONE_MUSIC} ${@}
+    fopen ${ONE_MUSIC} "${@}"
 }
 
 one() {
-    fo ${ONE} ${@}
+    fo ${ONE} "${@}"
 }
 
 downloads() {
-    fo ${DOWNLOADS} ${@}
+    fo ${DOWNLOADS} "${@}"
 }
 
 work() {
-    fo ${WORKSPACE} ${@}
+    fo ${WORKSPACE} "${@}"
 }
 
 export -f music

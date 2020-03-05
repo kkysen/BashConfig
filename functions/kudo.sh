@@ -1,5 +1,5 @@
 kudo() {
-    sudo -E env "PATH=${PATH}" ${@}
+    sudo -E env "PATH=${PATH}" "${@}"
 }
 
 export -f kudo

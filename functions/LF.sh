@@ -1,5 +1,5 @@
 LF() {
-    endlines unix -r ${@}
+    endlines unix -r "${@}"
 }
 
 export -f LF

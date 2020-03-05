@@ -1,5 +1,5 @@
 crateName() {
-    crate-name-cli ${@}
+    crate-name-cli "${@}"
     if [[ "$#" -eq 0 ]]; then
         echo
     fi

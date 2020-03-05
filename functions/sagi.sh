@@ -1,5 +1,5 @@
 sagi() {
-    sudo apt install ${@}
+    sudo apt install "${@}"
 }
 
 export -f sagi

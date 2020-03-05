@@ -20,7 +20,7 @@ copyReplace() {
 export -f copyReplace
 
 makeCaseSensitive() {
-	copyReplace ${@}
+	copyReplace "${@}"
 }
 
 export -f makeCaseSensitive

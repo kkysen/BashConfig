@@ -1,5 +1,5 @@
 js() {
-    node_mjs "${FUNCTIONS}/js.mjs" ${@}
+    node_mjs "${FUNCTIONS}/js.mjs" "${@}"
 }
 
 export -f js
