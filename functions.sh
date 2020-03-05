@@ -39,5 +39,6 @@ cd ${FUNCTIONS}
 . tennis.sh
 . execute.sh
 . timer.sh
+. applications.sh
 
 cd ~-
