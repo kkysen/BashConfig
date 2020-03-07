@@ -26,7 +26,7 @@ export BROWSER=chrome
 
 browse() {
     local browser="${BROWSER}"
-    local path=$(browserPath "${browser}") || exit 1
+    local path=$(browserPath "${browser}")
     if [[ "${path}" == "" ]]; then
         return 1
     fi

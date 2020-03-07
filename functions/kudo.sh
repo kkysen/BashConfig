@@ -3,3 +3,5 @@ kudo() {
 }
 
 export -f kudo
+
+# inheritCompletion sudo kudo

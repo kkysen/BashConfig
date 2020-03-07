@@ -61,4 +61,4 @@ export -f bashrc
 export -f rc
 
 complete -F bashrc_complete bashrc
-complete -F bashrc_complete rc
+inheritCompletion bashrc rc

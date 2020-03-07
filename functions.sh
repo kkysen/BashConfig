@@ -1,5 +1,6 @@
 cd ${FUNCTIONS}
 
+. inheritCompletion.sh
 . bashrc.sh
 . notify.sh
 . alert.sh
