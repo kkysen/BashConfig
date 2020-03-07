@@ -31,13 +31,16 @@ browse() {
         return 1
     fi
 
-    if [[ "${1}" == "--all" ]]; then
-        for arg in "${@:2}"; do
-            guiAt "${path}" "${arg}"
-        done
-    else
-        guiAt "${path}" "${@}"
-    fi
+    case "${1}" in
+        -a | --all)
+            for arg in "${@:2}"; do
+                guiAt "${path}" "${arg}"
+            done
+            ;;
+        *)
+            guiAt "${path}" "${@}"
+            ;;
+    esac
 }
 
 browseAll() {
