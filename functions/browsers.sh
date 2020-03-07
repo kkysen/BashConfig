@@ -30,13 +30,18 @@ browse() {
     if [[ "${path}" == "" ]]; then
         return 1
     fi
-    guiAt "${path}" "${@}"
+
+    if [[ "${1}" == "--all" ]]; then
+        for arg in "${@:2}"; do
+            guiAt "${path}" "${arg}"
+        done
+    else
+        guiAt "${path}" "${@}"
+    fi
 }
 
 browseAll() {
-    for path in "${@}"; do
-        browse "${path}"
-    done
+    browse --all "${@}"
 }
 
 export -f browserPath
