@@ -41,5 +41,6 @@ cd ${FUNCTIONS}
 . execute.sh
 . timer.sh
 . applications.sh
+. pyenv.sh
 
 cd ~-

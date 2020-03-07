@@ -33,6 +33,16 @@ browse() {
     guiAt "${path}" "${@}"
 }
 
+browseAll() {
+    for path in "${@}"; do
+        browse "${path}"
+    done
+}
+
+export -f browserPath
+export -f browse
+export -f browseAll
+
 chrome() {
     BROWSER=chrome browse "${@}"
 }
@@ -49,8 +59,6 @@ edge() {
     BROWSER=edge browse "${@}"
 }
 
-export -f browserPath
-export -f browse
 export -f chrome
 export -f firefox
 export -f brave
