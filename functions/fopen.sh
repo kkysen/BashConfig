@@ -9,7 +9,7 @@ recordRun() {
 fopen() {
     # find a file using sk and open it
     local dir=${1}
-    local opener=${2}
+    local opener=${@:2}
 
     if [[ "${dir}" == "" ]]; then
         dir="."
@@ -25,7 +25,7 @@ fopen() {
     else
         local path="${dir}/${file}"
     fi
-    if [[ "${opener}" == "" ]]; then
+    if [[ ${#opener[@]} -eq 0 ]]; then
         if [[ -d "${path}" ]]; then
             if [[ "${dir}" == "." ]]; then
                 open .
@@ -39,7 +39,7 @@ fopen() {
             cd ~-
         fi
     else
-        recordRun ${opener} "${path}"
+        recordRun ${opener[@]} "${path}"
     fi
 }
 
