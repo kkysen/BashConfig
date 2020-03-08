@@ -13,6 +13,7 @@ cd "${CONFIG_DIR}"
 configCache brew
 . pkgConfig.sh
 . pyenv.sh
+configCache thefuck
 
 cd ~-
 
