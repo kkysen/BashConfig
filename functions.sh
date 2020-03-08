@@ -1,6 +1,7 @@
 cd ${FUNCTIONS}
 
 . inheritCompletion.sh
+. prompt.sh
 . bashrc.sh
 . notify.sh
 . alert.sh
@@ -42,5 +43,6 @@ cd ${FUNCTIONS}
 . timer.sh
 . applications.sh
 . pyenv.sh
+. zoxide.sh
 
 cd ~-

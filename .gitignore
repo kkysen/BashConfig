@@ -1,3 +1,4 @@
 .idea/
 bash_history.txt
+zoxide.db
 config/*.gen.sh
