@@ -45,5 +45,6 @@ cd ${FUNCTIONS}
 . pyenv.sh
 . zoxide.sh
 . skim.sh
+. tre.sh
 
 cd ~-
