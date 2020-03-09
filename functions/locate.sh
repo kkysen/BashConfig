@@ -3,12 +3,24 @@ locate() {
     lolcate "${@}"
 }
 
+allUsing() {
+    local dir="${DIR}"
+    local skimCmd
+    if [[ "${dir}" == "" ]]; then
+        skimCmd="locate"
+    else
+        absDir=$(realpath "${dir}")
+        skimCmd="locate | rg \"^${absDir}\""
+    fi
+    SKIM="${skimCmd}" ${CMD} "${@}"
+}
+
 skall() {
-    SKIM_DEFAULT_COMMAND="lolcate" sk "${@}"
+    CMD="sk" allUsing "${@}"
 }
 
 fall() {
-    SKIM_DEFAULT_COMMAND="lolcate" fo . "${@}"
+    CMD="fo ." allUsing "${@}"
 }
 
 export -f locate

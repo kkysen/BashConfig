@@ -64,7 +64,7 @@ downloads() {
 }
 
 work() {
-    fo ${WORKSPACE} "${@}"
+    SKIM="rg --files" fo ${WORKSPACE} "${@}"
 }
 
 export -f music

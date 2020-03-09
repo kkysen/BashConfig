@@ -34,7 +34,7 @@ bashrc() {
 			. ~/.bashrc
 			;;
 		"sh")
-			local file=$(cd "${FUNCTIONS}" && SKIM_DEFAULT_COMMAND="rg --files | rg '.sh'" sk)
+			local file=$(cd "${FUNCTIONS}" && SKIM="rg --files | rg '.sh'" sk)
 			reloadScript "${file}"
 			;;
 		"-h" | "-help" | "--help")

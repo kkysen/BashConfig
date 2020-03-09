@@ -44,5 +44,6 @@ cd ${FUNCTIONS}
 . applications.sh
 . pyenv.sh
 . zoxide.sh
+. skim.sh
 
 cd ~-
