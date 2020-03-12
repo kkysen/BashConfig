@@ -12,7 +12,6 @@ export PROGRAM_FILES_X86="${WIN_DRIVE}/Program Files (x86)"
 export ONE_DRIVE="${WIN_HOME}/OneDrive"
 export ONE="${ONE_DRIVE}"
 export ONE_HOME="${ONE_DRIVE}/Khyber"
-export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
 
 export DOCUMENTS="${ONE_HOME}/Documents"
 export MISC="${DOCUMENTS}/misc"
@@ -23,3 +22,7 @@ export SEMESTER="${COLUMBIA}/Sophomore/Spring" # change every semester
 export DOWNLOADS="${WIN_HOME}/Downloads"
 export DESKTOP="${ONE_HOME}/Desktop"
 export APP_DATA="${WIN_HOME}/AppData"
+
+export ONE_MISC="${DOCUMENTS}/misc"
+export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
+export ONE_VIDEO="${ONE_MISC}/Videos"
