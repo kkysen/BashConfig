@@ -1,3 +1,7 @@
+vikiSearchShow() {
+    googler "Viki ${@}" --json 2>/dev/null | js 'a => a.map(e => e.url).find(e => e.includes("viki.com/tv"))'
+}
+
 viki() {
     local subCommand="${1}"
     case "${subCommand}" in
@@ -10,7 +14,11 @@ viki() {
             ;;
         search)
             local search="${@:2}"
-            local url=$(googler "Viki ${search}" --json | js 'a => a.map(e => e.url).find(e => e.includes("viki.com/tv"))')
+            local url=$(vikiSearchShow "${search}")
+            if [[ "${url}" == "undefined" ]]; then
+                >&2 echo "Couldn't find a Viki show for: ${search}"
+                return 1
+            fi
             ;;
         *)
             >&2 echo "Usage: ${FUNCNAME[0]} [url | code | search] <arg>"
