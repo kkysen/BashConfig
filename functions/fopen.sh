@@ -51,23 +51,33 @@ fo() {
 export -f fopen
 export -f fo
 
-music() {
-    fopen ${ONE_MUSIC} "${@}"
-}
-
-one() {
-    fo ${ONE} "${@}"
-}
-
-downloads() {
-    fo ${DOWNLOADS} "${@}"
-}
-
 work() {
     SKIM="echo . && rg --files" fo ${WORKSPACE} "${@}"
 }
 
-export -f music
+one() {
+    fo "${ONE}" "${@}"
+}
+
+downloads() {
+    fo "${DOWNLOADS}" "${@}"
+}
+
+misc() {
+    fo "${ONE_MISC}" "${@}"
+}
+
+music() {
+    fo "${ONE_MUSIC}" "${@}"
+}
+
+video() {
+    fo "${ONE_VIDEO}" "${@}"
+}
+
+export -f work
 export -f one
 export -f downloads
-export -f work
+export -f misc
+export -f music
+export -f video
