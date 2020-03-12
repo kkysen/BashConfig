@@ -46,5 +46,8 @@ cd ${FUNCTIONS}
 . zoxide.sh
 . skim.sh
 . tre.sh
+. vidcloud.sh
+. openAll.sh
+. viki.sh
 
 cd ~-
