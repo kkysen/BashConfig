@@ -14,6 +14,7 @@ configCache brew
 . pkgConfig.sh
 . pyenv.sh
 configCache thefuck
+. fzf.sh
 
 cd ~-
 
