@@ -49,5 +49,6 @@ cd ${FUNCTIONS}
 . vidcloud.sh
 . openAll.sh
 . viki.sh
+. weather.sh
 
 cd ~-
