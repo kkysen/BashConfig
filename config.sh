@@ -26,7 +26,6 @@ esac
 
 cd "${CONFIG_DIR}"
 
-. history.sh
 . misc.sh
 . colors.sh
 . completion.sh

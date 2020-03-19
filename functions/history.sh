@@ -12,11 +12,8 @@ export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%c "
 
 # save history even when shell crashes
-if [ -z "${PROMPT_COMMAND}" ]; then
-  export PROMPT_COMMAND="history -a; history -n"
-else
-  export PROMPT_COMMAND="${PROMPT_COMMAND}; history -a;  history -n"
-fi
+addPrompt "history -a"
+addPrompt "history -n"
 
 export HISTFILE="${BASH_DIR}/bash_history.txt"
 

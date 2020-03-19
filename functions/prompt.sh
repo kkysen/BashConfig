@@ -1,4 +1,10 @@
-export PROMPT_COMMAND="true"  # so I can just add ; and a new command
+if [[ "${PROMPT_COMMAND}" == "" ]]; then
+    export PROMPT_COMMAND="true"  # so I can just add ; and a new command
+fi
+
+prompt() {
+    echo "${PROMPT_COMMAND}" | sed "s/\; /\n/g"
+}
 
 addPromptBefore() {
     prompt="${@}"

@@ -50,5 +50,6 @@ cd ${FUNCTIONS}
 . openAll.sh
 . viki.sh
 . weather.sh
+. history.sh
 
 cd ~-
