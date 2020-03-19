@@ -52,7 +52,7 @@ export -f fopen
 export -f fo
 
 work() {
-    SKIM="echo . && rg --files" fo ${WORKSPACE} "${@}"
+    fo ${WORKSPACE} "${@}"
 }
 
 one() {

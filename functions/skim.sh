@@ -1,3 +1,5 @@
+export SKIM="echo . && fd"
+
 skim() {
     SKIM_DEFAULT_COMMAND="${SKIM}" command sk "${@}"
 }
