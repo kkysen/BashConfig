@@ -1,4 +1,4 @@
-export _ZO_DATA="${BASH_DIR}/zoxide.db"
+export _ZO_DATA="${DATA_DIR}/zoxide.db"
 
 z() {
     if [[ $# -eq 0 ]]; then

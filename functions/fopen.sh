@@ -6,6 +6,14 @@ recordRun() {
     "${@}"
 }
 
+winOpen() {
+    local path="${1}"
+    local winPath=$(wslpath -m -a "${path}")
+    cd "${WIN}"
+    recordRun open "${winPath}"
+    cd ~-
+}
+
 fopen() {
     # find a file using sk and open it
     local dir=${1}
@@ -28,16 +36,9 @@ fopen() {
     
     if [[ ${#opener[@]} -eq 0 ]]; then
         if [[ -d "${path}" ]]; then
-            if [[ "${dir}" == "." ]]; then
-                open .
-            else
-                cd "${path}"
-            fi
+            cd "${path}"
         else
-            local winPath=$(wslpath -m -a "${path}")
-            cd "${WIN}"
-            recordRun open "${winPath}"
-            cd ~-
+            winOpen "${path}"
         fi
     else
         recordRun ${opener[@]} "${path}"

@@ -3,6 +3,7 @@
 cd "${CONFIGS}"
 
 . path.sh
+. xdg.sh
 . sshd.sh
 . aliases.sh
 . fnm.sh

@@ -15,7 +15,7 @@ export HISTTIMEFORMAT="%c "
 addPrompt "history -a"
 addPrompt "history -n"
 
-export HISTFILE="${BASH_DIR}/bash_history.txt"
+export HISTFILE="${DATA_DIR}/bash_history.txt"
 
 alias ignore=""
 alias i=ignore

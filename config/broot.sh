@@ -1,1 +1,1 @@
-. ~/.config/broot/launcher/bash/br
+. "${CONFIG_DIR}/broot/launcher/bash/br"

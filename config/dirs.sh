@@ -22,9 +22,15 @@ export COLUMBIA="${DOCUMENTS}/Columbia"
 export SEMESTER="${COLUMBIA}/Sophomore/Spring" # change every semester
 
 export DOWNLOADS="${WIN_HOME}/Downloads"
-export DESKTOP="${ONE_HOME}/Desktop"
+export DESKTOP="${WIN_HOME}/Desktop"
 export APP_DATA="${WIN_HOME}/AppData"
 
 export ONE_MISC="${DOCUMENTS}/misc"
 export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
-export ONE_VIDEO="${ONE_MISC}/Videos"
+export ONE_VIDEO="${ONE_MISC}/Videos"  # TODO move
+export ONE_PHOTOS="${ONE_MISC}/Photos"  # TODO move
+
+export BASH_HOME="${BASH_DIR}/home"
+export CONFIG_DIR="${BASH_HOME}/.config"
+export DATA_DIR="${BASH_HOME}/.local/share"
+export CACHE_DIR="${HOME}/.cache"

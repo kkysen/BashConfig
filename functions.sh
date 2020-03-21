@@ -51,5 +51,6 @@ cd ${FUNCTIONS}
 . viki.sh
 . weather.sh
 . history.sh
+. chmodAll.sh
 
 cd ~-
