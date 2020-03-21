@@ -5,12 +5,10 @@ locate() {
 
 allUsing() {
     local dir="${DIR}"
-    local skimCmd
-    if [[ "${dir}" == "" ]]; then
-        skimCmd="locate"
-    else
+    local skimCmd="locate"
+    if [[ ! "${dir}" == "" ]]; then
         absDir=$(realpath "${dir}")
-        skimCmd="locate | rg \"^${absDir}\""
+        skimCmd="${skimCmd} | rg \"^${absDir}\""
     fi
     SKIM="${skimCmd}" ${CMD} "${@}"
 }
