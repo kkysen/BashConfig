@@ -8,8 +8,6 @@ export FUNCTIONS="${BASH_DIR}/functions"
 export COMPLETIONS="${BASH_DIR}/completions"
 export GEN_COMPLETIONS="${BASH_DIR}/config/completions"
 
-export BASH_COMPLETION_USER_DIR="${COMPLETIONS}"
-
 export PROGRAM_FILES="${WIN_DRIVE}/Program Files"
 export PROGRAM_FILES_X86="${WIN_DRIVE}/Program Files (x86)"
 

@@ -1,3 +1,6 @@
+# bash looks under ${BASH_COMPLETION_USER_DIR}/completions
+export BASH_COMPLETION_USER_DIR=$(dirname "${COMPLETIONS}")
+
 # From default .bashrc
 
 # enable programmable completion features (you don't need to enable
