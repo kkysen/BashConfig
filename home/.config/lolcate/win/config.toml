@@ -1,0 +1,7 @@
+description = "Windows C:/"
+dirs = [
+  "/mnt/c"
+]
+skip = "None"
+ignore_symlinks = false
+ignore_hidden = false

@@ -4,5 +4,9 @@
 /completions/
 
 __pycache__/
-/home/.local/share/  # DATA_DIR
-/home/.config/configstore/  # seems like this should go in CACHE_DIR
+
+# DATA_DIR
+/home/.config/configstore
+
+# seems like this should go in CACHE_DIR
+/home/.local/share/

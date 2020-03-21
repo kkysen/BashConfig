@@ -1,0 +1,7 @@
+description = "Everything"
+dirs = [
+  "/"
+]
+skip = "None"
+ignore_symlinks = false
+ignore_hidden = false

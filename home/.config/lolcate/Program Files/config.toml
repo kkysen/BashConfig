@@ -1,0 +1,8 @@
+description = "Program Files (x86 and x86-64)"
+dirs = [
+  "/mnt/c/Program Files",
+  "/mnt/c/Program Files (x86)"
+]
+skip = "None"
+ignore_symlinks = false
+ignore_hidden = false

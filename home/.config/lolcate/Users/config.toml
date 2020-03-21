@@ -1,0 +1,7 @@
+description = "All Windows Users"
+dirs = [
+  "/mnt/c/Users"
+]
+skip = "None"
+ignore_symlinks = false
+ignore_hidden = false
