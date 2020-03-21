@@ -1,5 +1,6 @@
 cd ${FUNCTIONS}
 
+. cacheGenerated.sh
 . inheritCompletion.sh
 . prompt.sh
 . bashrc.sh
@@ -35,7 +36,6 @@ cd ${FUNCTIONS}
 . sagi.sh
 . serveFiles.sh
 . locate.sh
-. configCache.sh
 . bottom.sh
 . crateName.sh
 . tennis.sh
