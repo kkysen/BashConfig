@@ -1,4 +1,4 @@
-# TODO allow reloading scripts in ${CONFIG_DIR} as well, not just ${FUNCTIONS}
+# TODO allow reloading scripts in ${CONFIGS} as well, not just ${FUNCTIONS}
 
 reloadScript() {
 	# if given a file in ${FUNCTIONS}, reload only that file

@@ -1,5 +1,3 @@
-export BASH_COMPLETION_USER_DIR="${BASH_DIR}/completions"
-
 # From default .bashrc
 
 # enable programmable completion features (you don't need to enable

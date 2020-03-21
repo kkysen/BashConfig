@@ -1,6 +1,6 @@
-. "${FUNCTIONS}/configCache.sh"
+. "${FUNCTIONS}/cacheGenerated.sh"
 
-cd "${CONFIG_DIR}"
+cd "${CONFIGS}"
 
 . path.sh
 . sshd.sh
@@ -10,10 +10,10 @@ cd "${CONFIG_DIR}"
 . rustc.sh
 . perl.sh
 . broot.sh
-configCache brew
+genConfig brew
 . pkgConfig.sh
 . pyenv.sh
-configCache thefuck
+genConfig thefuck
 . fzf.sh
 
 cd ~-
@@ -24,7 +24,7 @@ case $- in
       *) return;;
 esac
 
-cd "${CONFIG_DIR}"
+cd "${CONFIGS}"
 
 . misc.sh
 . colors.sh
