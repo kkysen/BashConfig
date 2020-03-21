@@ -1,8 +1,22 @@
-# Dirs / files to ignore.
-# Use the same syntax as gitignore(5).
-# Common patterns:
-#
-# .git
-# *~
-
 /proc/
+/dev/
+/tmp/
+
+/boot/
+init
+/root/
+/run/
+/sbin/
+/snap/
+/srv/
+/sys/
+/var/
+
+/mnt/c/$Recycle.Bin/
+/mnt/c/Intel/IntelOptaneData
+/mnt/c/IntelOptaneData
+/mnt/c/ProgramData/
+/mnt/c/Recovery/
+/mnt/c/System Volume Information/
+/mnt/c/Users/Khyber/AppData/Local/Packages/
+/mnt/c/Windows/

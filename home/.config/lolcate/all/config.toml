@@ -1,4 +1,4 @@
-description = "mostly everything"
+description = "almost everything, excl. /proc and /tmp mostly"
 dirs = [
   "/"
 ]
