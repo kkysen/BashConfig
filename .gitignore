@@ -10,6 +10,3 @@ __pycache__/
 
 # seems like this should go in CACHE_DIR
 /home/.local/share/
-
-/home/.config/lolcate/files.txt
-/home/.config/lolcate/out.log
