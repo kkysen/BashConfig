@@ -32,4 +32,6 @@ cd "${CONFIGS}"
 . completion.sh
 . title.sh
 
+. path.sh  # restore my own PATH order
+
 cd ~-
