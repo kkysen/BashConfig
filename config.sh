@@ -8,7 +8,7 @@ cd "${CONFIGS}"
 . aliases.sh
 . fnm.sh
 . ssh.sh
-. rustc.sh
+. rust.sh
 . perl.sh
 . broot.sh
 genConfig brew
