@@ -1,4 +1,4 @@
-cd ${FUNCTIONS}
+cd "${FUNCTIONS}"
 
 . cacheGenerated.sh
 . inheritCompletion.sh
@@ -7,7 +7,6 @@ cd ${FUNCTIONS}
 . notify.sh
 . alert.sh
 . ring.sh
-. copyAndLink.sh
 . copyReplace.sh
 . path.sh
 . copyLink.sh
@@ -53,5 +52,6 @@ cd ${FUNCTIONS}
 . history.sh
 . chmodAll.sh
 . google.sh
+. installLocal.sh
 
 cd ~-

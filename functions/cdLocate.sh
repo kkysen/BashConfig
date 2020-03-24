@@ -1,5 +1,5 @@
 cdLocate() {
-	cd "$(locateFirst "${1}")" || exit
+	cd "$(locateFirst "${1}")" || return
 }
 
 export -f cdLocate

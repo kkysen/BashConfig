@@ -7,13 +7,13 @@ prompt() {
 }
 
 addPromptBefore() {
-    prompt="${@}"
-    export PROMPT_COMMAND="${prompt}; ${PROMPT_COMMAND}"
+    prompt=("${@}")
+    export PROMPT_COMMAND="${prompt[*]}; ${PROMPT_COMMAND}"
 }
 
 addPromptAfter() {
-    prompt="${@}"
-    export PROMPT_COMMAND="${PROMPT_COMMAND}; ${prompt}"
+    prompt=("${@}")
+    export PROMPT_COMMAND="${PROMPT_COMMAND}; ${prompt[*]}"
 }
 
 addPrompt() {

@@ -1,1 +1,1 @@
-. ~/.fzf.bash
+. "${HOME}/.fzf.bash"

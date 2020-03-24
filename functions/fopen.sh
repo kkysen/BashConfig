@@ -1,8 +1,8 @@
 recordRun() {
     history -a
-    local current="$(tac $HISTFILE | head -n 1)"
+    local current="$(tac "${HISTFILE}" | head -n 1)"
     history -s "${@}"
-    history -s ${current}
+    history -s "${current}"
     "${@}"
 }
 
@@ -41,7 +41,7 @@ fopen() {
             winOpen "${path}"
         fi
     else
-        recordRun ${opener[@]} "${path}"
+        recordRun "${opener[@]}" "${path}"
     fi
 }
 
@@ -53,7 +53,7 @@ export -f fopen
 export -f fo
 
 work() {
-    fo ${WORKSPACE} "${@}"
+    fo "${WORKSPACE}" "${@}"
 }
 
 one() {

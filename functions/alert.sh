@@ -1,6 +1,6 @@
 alert() {
 	"${@}"
-	notify "-Text \"${@}\""
+	notify "-Text \"${*}\""
 }
 
 export -f alert

@@ -12,7 +12,7 @@ handleUrls() {
 googleAndThen() {
     local func="${1}"
     local args=("${@:2}")
-    local pipe=$(mktemp -ut googler-url-pipe.XXX)   
+    local pipe=$(mktemp -ut googler-url-pipe.XXX)
     mkfifo "${pipe}" || return 1
     (handleUrls "${pipe}" "${func}" &)
     googler --url-output "${pipe}" "${args[@]}"
@@ -23,7 +23,6 @@ googleSearchAndThen() {
     local name="${FUNCNAME[1]}"
     local prefix="${1}"
     local func="${2}"
-    local execFunc="${SHELL} -i -c ${func}"
     local subCommand="${3}"
     case "${subCommand}" in
         url)

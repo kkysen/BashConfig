@@ -19,12 +19,12 @@ execute() {
     # if the directories in the path exist, convert the path then
     
     local executable="${1}"
-    local args=${@:2}
+    local args=("${@:2}")
 
     local fileType=$(file "${executable}")
 
     if [[ "${fileType}" == *"Windows"* ]]; then
-        for i in ${!args[@]}; do
+        for i in "${!args[@]}"; do
             args[i]=$(toWinPath "${args[i]}")
         done
     fi
