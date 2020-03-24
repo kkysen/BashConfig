@@ -52,5 +52,6 @@ cd ${FUNCTIONS}
 . weather.sh
 . history.sh
 . chmodAll.sh
+. google.sh
 
 cd ~-

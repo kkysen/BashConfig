@@ -1,5 +1,10 @@
+yt2mp3Url() {
+    local url="${1}"
+    youtube-dl --extract-audio --audio-format mp3 -o "${ONE_MUSIC}/%(title)s.%(ext)s" "${url}"
+}
+
 yt2mp3() {
-    youtube-dl --extract-audio --audio-format mp3 -o "${ONE_MUSIC}/%(title)s.%(ext)s" "${@}"
+    googleSearchAndThen "https://www.youtube.com/watch?v=" yt2mp3Url "${@}"
 }
 
 export -f yt2mp3
