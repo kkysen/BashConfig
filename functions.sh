@@ -54,5 +54,7 @@ cd "${FUNCTIONS}"
 . google.sh
 . installLocal.sh
 . map.sh
+. ide.sh
+. jetBrainsIde.sh
 
 cd ~-
