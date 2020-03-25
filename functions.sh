@@ -53,5 +53,6 @@ cd "${FUNCTIONS}"
 . chmodAll.sh
 . google.sh
 . installLocal.sh
+. map.sh
 
 cd ~-
