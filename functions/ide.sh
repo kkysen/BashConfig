@@ -31,4 +31,5 @@ ide() {
     esac
 }
 
+export -f ideList
 export -f ide
