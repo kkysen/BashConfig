@@ -23,7 +23,7 @@ execute() {
 
     local fileType=$(file "${executable}")
 
-    if [[ "${fileType}" == *"Windows"* ]]; then
+    if [[ "${fileType}" == *"Windows"* ]] || [[ "${fileType}" == *"DOS"* ]]; then
         for i in "${!args[@]}"; do
             args[i]=$(toWinPath "${args[i]}")
         done
