@@ -23,7 +23,7 @@ fopen() {
         dir="."
     fi
     cd "${dir}"
-    local file="$(sk)"
+    local file="$(skim)"
     cd ~-
     if [[ "${file}" == "" ]]; then
         return

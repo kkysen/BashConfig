@@ -35,7 +35,11 @@ bashrc() {
             . ~/.bashrc
             ;;
         "sh")
-            local file=$(cd "${FUNCTIONS}" && SKIM="rg --files | rg '.sh'" sk)
+            fd --base-directory "${FUNCTIONS}" --type file --extension sh | skim
+            local file=$(fd --base-directory "${FUNCTIONS}" --type file --extension sh | skim)
+            if [[ "${file}" == "" ]]; then
+                return 1
+            fi
             reloadScript "${file}"
             ;;
         "-h" | "-help" | "--help")

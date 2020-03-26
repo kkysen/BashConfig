@@ -3,24 +3,27 @@ locate() {
     lolcate "${@}"
 }
 
-allUsing() {
+locateInDir() {
     local dir="${DIR}"
-    local skimCmd="locate"
     if [[ ! "${dir}" == "" ]]; then
-        absDir=$(realpath "${dir}")
-        skimCmd="${skimCmd} | rg \"^${absDir}\""
+        absDir=$(realpath -f "${dir}")
+        local filter="rg \"^${absDir}\""
+    else
+        local filter=cat
     fi
-    SKIM="${skimCmd}" ${CMD} "${@}"
+    # lolcate panics when output pipe is closed before it's done writing to it
+    locate "${@}" 2> /dev/null | "${filter}"
 }
 
 skall() {
-    CMD="sk" allUsing "${@}"
+    locateInDir "${@}" | skim
 }
 
 fall() {
-    CMD="fo ." allUsing "${@}"
+    locateInDir | fo . "${@}"
 }
 
 export -f locate
+export -f locateInDir
 export -f skall
 export -f fall
