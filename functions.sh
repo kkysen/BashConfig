@@ -57,6 +57,7 @@ cd "${FUNCTIONS}"
 . map.sh
 . ide.sh
 . jetBrainsIde.sh
+. findLast.sh
 
 cd ~-
 
