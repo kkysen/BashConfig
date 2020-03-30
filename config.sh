@@ -1,4 +1,8 @@
-. "${FUNCTIONS}/cacheGenerated.sh"
+cd "${FUNCTIONS}"
+. dedupe.sh
+. cacheGenerated.sh
+. path.sh
+cd ~-
 
 cd "${CONFIGS}"
 
