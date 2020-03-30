@@ -1,5 +1,5 @@
 path() {
-	echo "${PATH}" | tr ":" "\n"
+    echo "${PATH}" | sd -s ':' $'\n'
 }
 
 export -f path

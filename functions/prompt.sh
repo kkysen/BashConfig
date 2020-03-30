@@ -3,7 +3,7 @@ if [[ "${PROMPT_COMMAND}" == "" ]]; then
 fi
 
 prompt() {
-    echo "${PROMPT_COMMAND}" | sed "s/\; /\n/g"
+    echo "${PROMPT_COMMAND}" | sd -s "${PROMPT_DELIM}" $'\n'
 }
 
 addPromptBefore() {
