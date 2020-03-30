@@ -2,6 +2,7 @@
 
 cd "${CONFIGS}"
 
+. timezone.sh
 . path.sh
 . xdg.sh
 . sshd.sh
