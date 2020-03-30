@@ -16,7 +16,7 @@ convertTimeToPrintf() {
     esac
 }
 
-findLast() {
+last() {
     local timeType="${1}"
     local dir="${2-.}"
     local timeFormat
@@ -35,19 +35,19 @@ findLast() {
         | tr '\0' "${delim}"
 }
 
-findLastCreated() {
-    findLast created "${@}"
+lastCreated() {
+    last created "${@}"
 }
 
-findLastModified() {
-    findLast modified "${@}"
+lastModified() {
+    last modified "${@}"
 }
 
-findLastAccessed() {
-    findLast accessed "${@}"
+lastAccessed() {
+    last accessed "${@}"
 }
 
-export -f findLast
-export -f findLastCreated
-export -f findLastModified
-export -f findLastAccessed
+export -f last
+export -f lastCreated
+export -f lastModified
+export -f lastAccessed

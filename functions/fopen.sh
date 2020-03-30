@@ -62,11 +62,6 @@ one() {
     fo "${ONE}" "${@}"
 }
 
-fopenLastModified() {
-    local dir="${1}"
-    findLastModified "${dir}" | SKIM_DEFAULT_OPTIONS="--read0" fo . "${@:2}"
-}
-
 downloads() {
     fo "${DOWNLOADS}" "${@}"
 }
