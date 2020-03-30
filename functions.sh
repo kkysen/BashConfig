@@ -1,5 +1,6 @@
 cd "${FUNCTIONS}"
 
+. dedupe.sh
 . cacheGenerated.sh
 . inheritCompletion.sh
 . prompt.sh
