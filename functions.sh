@@ -22,7 +22,7 @@ cd "${FUNCTIONS}"
 . open.sh
 . ip.sh
 . installPython.sh
-. fopen.sh
+. findOpen.sh
 . music.sh
 . gui.sh
 . browsers.sh

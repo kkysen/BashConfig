@@ -39,17 +39,22 @@ mapOpenWith() {
     map openWith "${@}"
 }
 
-fopen() {
+findOpen() {
     # need to use process substitution b/c openWith may cd
     # process substition is also usually faster than piping
     mapOpenWith "${@}" < <(skim)
 }
 
+fopen() {
+    findOpen "${@}"
+}
+
 fo() {
-    fopen "${@}"
+    findOpen "${@}"
 }
 
 export -f openWith
 export -f mapOpenWith
+export -f findOpen
 export -f fopen
 export -f fo
