@@ -16,7 +16,12 @@ l() {
     ${LS} -CF "${@}"
 }
 
+llc() {
+    ll --sort changed
+}
+
 export -f ls
 export -f ll
 export -f la
 export -f l
+export -f llc
