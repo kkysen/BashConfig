@@ -5,13 +5,23 @@ prompt() {
 }
 
 addPromptBefore() {
-    prompt=("${@}")
-    export PROMPT_COMMAND="${prompt[*]}; ${PROMPT_COMMAND}"
+    local prompt="${*}"
+    if [[ "${PROMPT_COMMAND}" == "" ]]; then
+        PROMPT_COMMAND="${prompt}"
+    else
+        PROMPT_COMMAND="${prompt}${PROMPT_DELIM}${PROMPT_COMMAND}"
+    fi
+    export PROMPT_COMMAND
 }
 
 addPromptAfter() {
-    prompt=("${@}")
-    export PROMPT_COMMAND="${PROMPT_COMMAND}; ${prompt[*]}"
+    local prompt="${*}"
+    if [[ "${PROMPT_COMMAND}" == "" ]]; then
+        PROMPT_COMMAND="${prompt}"
+    else
+        PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_DELIM}${prompt}"
+    fi
+    export PROMPT_COMMAND
 }
 
 addPrompt() {
