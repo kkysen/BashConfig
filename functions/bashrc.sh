@@ -59,7 +59,7 @@ bashrc() {
 bashrc_complete() {
     COMPREPLY+=($(compgen -W "edit ide cd go func functions config sh -h -help --help" -- "${COMP_WORDS[1]}"))
     local IFS=$'\n'
-    COMPREPLY+=($(ideList))
+    COMPREPLY+=($(compgen -W "$(ideList)" -- "${COMP_WORDS[1]}"))
     COMPREPLY+=($(cd "${FUNCTIONS}" && compgen -f -X '!*.sh' -- "${COMP_WORDS[1]}"))
 }
 
