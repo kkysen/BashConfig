@@ -14,29 +14,19 @@ winOpen() {
     cd ~-
 }
 
-fopen() {
-    # find a file using sk and open it
-    local dir=${1}
-    local opener=("${@:2}")
-
-    if [[ "${dir}" == "" ]]; then
-        dir="."
+openWith() {
+    local dir="${DIR}"
+    if [[ ${#} -eq 0 ]]; then
+        return 1
     fi
-    cd "${dir}"
-    local file="$(skim)"
-    cd ~-
-    if [[ "${file}" == "" ]]; then
-        return
+    local opener=("${@:1:${#}-1}")
+    local path="${!#}"
+    if [[ "${dir}" != "" ]]; then
+        path="${dir}/${path}"
     fi
-    if [[ "${dir}" == "." ]]; then
-        local path="${file}"
-    else
-        local path="${dir}/${file}"
-    fi
-    
     if [[ ${#opener[@]} -eq 0 ]]; then
         if [[ -d "${path}" ]]; then
-            cd "${path}"
+            recordRun cd "${path}"
         else
             winOpen "${path}"
         fi
@@ -45,10 +35,22 @@ fopen() {
     fi
 }
 
+mapOpenWith() {
+    map openWith "${@}"
+}
+
+fopen() {
+    # need to use process substitution b/c openWith may cd
+    # process substition is also usually faster than piping
+    mapOpenWith "${@}" < <(skim)
+}
+
 fo() {
     fopen "${@}"
 }
 
+export -f openWith
+export -f mapOpenWith
 export -f fopen
 export -f fo
 
@@ -58,6 +60,11 @@ work() {
 
 one() {
     fo "${ONE}" "${@}"
+}
+
+fopenLastModified() {
+    local dir="${1}"
+    findLastModified "${dir}" | SKIM_DEFAULT_OPTIONS="--read0" fo . "${@:2}"
 }
 
 downloads() {

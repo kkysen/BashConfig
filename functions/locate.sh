@@ -20,7 +20,8 @@ skall() {
 }
 
 fall() {
-    locateInDir | fo . "${@}"
+    local locateArgs=("${LOCATE_ARGS}")
+    mapOpenWith "${@}" < <(skall "${locateArgs[@]}")
 }
 
 export -f locate
