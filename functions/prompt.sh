@@ -1,6 +1,4 @@
-if [[ "${PROMPT_COMMAND}" == "" ]]; then
-    export PROMPT_COMMAND="true"  # so I can just add ; and a new command
-fi
+PROMPT_DELIM="; "
 
 prompt() {
     echo "${PROMPT_COMMAND}" | sd -s "${PROMPT_DELIM}" $'\n'
