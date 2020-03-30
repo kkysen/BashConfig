@@ -18,6 +18,11 @@ addPrompt() {
     addPromptAfter "${@}"
 }
 
+dedupePrompt() {
+    dedupeVar PROMPT_COMMAND "${PROMPT_DELIM}" --no-trailing-delimiter
+}
+
 export -f addPromptBefore
 export -f addPromptAfter
 export -f addPrompt
+export -f dedupePrompt

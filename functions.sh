@@ -59,3 +59,5 @@ cd "${FUNCTIONS}"
 . jetBrainsIde.sh
 
 cd ~-
+
+dedupePrompt
