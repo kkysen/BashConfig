@@ -10,5 +10,5 @@ findLast() {
     fi
 
     # shellcheck disable=SC2086
-    mapOpenWith "${dir}" $openArgs < <(cd "${dir}" && last -0 "${timeType}" . $findArgs | skim --read0)
+    mapOpenWith "${dir}" "${openArgs}" < <(cd "${dir}" && last -0 "${timeType}" . $findArgs | skim --read0)
 }
