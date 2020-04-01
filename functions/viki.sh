@@ -9,7 +9,7 @@ vikiUrl() {
 }
 
 viki() {
-    googleSearchAndThen "viki.com/tv" vikiUrl "${@}"
+    googleSearchAndThen "viki.com/tv/" vikiUrl "${@}"
 }
 
 export -f viki

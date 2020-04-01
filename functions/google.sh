@@ -31,7 +31,7 @@ googleSearchAndThen() {
             ;;
         code)
             local code="${4}"
-            local url="${prefix}/${code}"
+            local url="${prefix}${code}"
             "${func}" "${url}"
             ;;
         search)
