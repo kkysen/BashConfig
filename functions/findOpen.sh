@@ -15,34 +15,44 @@ winOpen() {
 }
 
 openWith() {
-    local dir="${DIR}"
-    if [[ ${#} -eq 0 ]]; then
+    if [[ ${#} -ne 3 ]]; then
+        echo >&2 "Usage: ${FUNCNAME[0]} <dir> <opener> <path>"
         return 1
     fi
-    local opener=("${@:1:${#}-1}")
-    local path="${!#}"
-    if [[ "${dir}" != "" ]]; then
+    local dir="${1}"  # default ""
+    local opener="${2}"  # default ""
+    local path="${3}"
+
+    if [[ "${dir}" == "" ]]; then
+        dir="."
+    fi
+    if [[ "${opener}" == "" ]]; then
+        opener=winOpen
+    fi
+
+    if [[ "${dir}" != "." ]]; then
         path="${dir}/${path}"
     fi
-    if [[ ${#opener[@]} -eq 0 ]]; then
-        if [[ -d "${path}" ]]; then
-            recordRun cd "${path}"
-        else
-            winOpen "${path}"
-        fi
-    else
-        recordRun "${opener[@]}" "${path}"
+
+    if [[ -d "${path}" ]]; then
+        opener="cd"
     fi
+    # shellcheck disable=SC2086
+    recordRun $opener "${path}"
 }
 
 mapOpenWith() {
-    map openWith "${@}"
+    local dir="${1}"
+    local opener="${2}"
+    map openWith "${dir}" "${opener}"
 }
 
 findOpen() {
+    local dir="${1}"
+    local opener="${2}"
     # need to use process substitution b/c openWith may cd
     # process substition is also usually faster than piping
-    mapOpenWith "${@}" < <(skim)
+    mapOpenWith "${dir}" "${opener}" "${@:2}" < <(skim --dir "${dir}")
 }
 
 fopen() {
