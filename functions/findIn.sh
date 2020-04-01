@@ -8,19 +8,19 @@ one() {
 }
 
 downloads() {
-    fo "${DOWNLOADS}" "${@}"
+    findLast accessed "${DOWNLOADS}" "-type f" "${*}"
 }
 
 misc() {
-    fo "${ONE_MISC}" "${@}"
+    findLast accessed "${ONE_MISC}" "-type f" "${*}"
 }
 
 music() {
-    fo "${ONE_MUSIC}" "${@}"
+    findLast accessed "${ONE_MUSIC}" "-type f" "${*}"
 }
 
 video() {
-    fo "${ONE_VIDEO}" "${@}"
+    findLast accessed "${ONE_VIDEO}" "${*}"
 }
 
 export -f work
