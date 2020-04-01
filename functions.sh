@@ -59,6 +59,7 @@ cd "${FUNCTIONS}"
 . jetBrainsIde.sh
 . last.sh
 . findLast.sh
+. findIn.sh
 
 cd ~-
 
