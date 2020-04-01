@@ -1,10 +1,14 @@
 export SKIM="echo . && fd"
 
 skim() {
-    local dir="${DIR-.}"
-    cd "${dir}"
-    SKIM_DEFAULT_COMMAND="${SKIM}" command sk "${@}"
-    cd ~-
+    if [[ "${1}" == "--dir" ]]; then
+        local dir="${2}"
+        shift
+        shift
+    else
+        local dir=""
+    fi
+    (cd "${dir}" && SKIM_DEFAULT_COMMAND="${SKIM}" command sk "${@}")
 }
 
 sk() {
