@@ -9,9 +9,7 @@ recordRun() {
 winOpen() {
     local path="${1}"
     local winPath=$(wslpath -m -a "${path}")
-    cd "${WIN}"
-    recordRun open "${winPath}"
-    cd ~-
+    (cd "${WIN}" && recordRun open "${winPath}")
 }
 
 openWith() {
