@@ -8,7 +8,7 @@ removeOldFiles() {
         timeFormat="m"
     fi
 
-    find "${dir}" -type f "-${timeFormat}time" "+${days}" -delete
+    find "${dir}" -type f,l,p,s "-${timeFormat}time" "+${days}" -delete
 }
 
 cleanTmp() {
