@@ -62,6 +62,7 @@ cd "${FUNCTIONS}"
 . findIn.sh
 . cdAny.sh
 . fs.sh
+. removeOldFiles.sh
 
 cd ~-
 
