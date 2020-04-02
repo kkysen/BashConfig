@@ -56,11 +56,19 @@ bashrc() {
     esac
 }
 
+bashrc_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    if [[ ${i} -ne 1 ]]; then
+        return
+    fi
+    compgen -W "edit ide cd go func functions config sh -h -help --help" -- "${arg}"
+    compgen -W "$(ideList)" -- "${arg}"
+    cd "${FUNCTIONS}" && compgen -f -X '!*.sh' -- "${arg}"
+}
+
 bashrc_complete() {
-    COMPREPLY+=($(compgen -W "edit ide cd go func functions config sh -h -help --help" -- "${COMP_WORDS[1]}"))
-    local IFS=$'\n'
-    COMPREPLY+=($(compgen -W "$(ideList)" -- "${COMP_WORDS[1]}"))
-    COMPREPLY+=($(cd "${FUNCTIONS}" && compgen -f -X '!*.sh' -- "${COMP_WORDS[1]}"))
+    COMPREPLY+=($(bashrc_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
 }
 
 rc() {

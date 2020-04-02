@@ -1,17 +1,17 @@
 convertTimeToPrintf() {
     local timeType="${1}"
     case "${timeType}" in
-        created | c)
+        created)
             echo "C"
             ;;
-        modified | m)
+        modified)
             echo "T"
             ;;
-        accessed | a)
+        accessed)
             echo "A"
             ;;
         *)
-            echo "c | created | m | modified | a | accessed"
+            echo "created modified accessed"
             return 1
     esac
 }
@@ -31,6 +31,10 @@ last() {
             local delim='\0'
             shift
             ;;
+        --times)
+            convertTimeToPrintf
+            return
+            ;;
         *)
             local delim='\n'
             ;;
@@ -49,3 +53,19 @@ last() {
 }
 
 export -f last
+
+last_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    # good enough
+    if [[ ${i} -eq 1 ]]; then
+        compgen -W "--null -0 --times" -- "${arg}"
+    fi
+    compgen -W "$(last --times)" -- "${arg}"
+}
+
+last_complete() {
+    COMPREPLY+=($(last_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+}
+
+complete -F last_complete last
