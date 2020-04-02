@@ -61,6 +61,7 @@ cd "${FUNCTIONS}"
 . findLast.sh
 . findIn.sh
 . cdAny.sh
+. fs.sh
 
 cd ~-
 
