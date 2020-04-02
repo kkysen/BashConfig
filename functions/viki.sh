@@ -10,4 +10,6 @@ viki() {
     googleSearchAndThen "viki.com/tv/" vikiUrl "${@}"
 }
 
+viki complete
+
 export -f viki

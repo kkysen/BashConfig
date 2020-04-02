@@ -6,7 +6,7 @@ handleUrls() {
         if [[ "${url}" != "" ]]; then
             "${func}" "${url}"
         fi
-    done < "${pipe}"
+    done <"${pipe}"
 }
 
 googleAndThen() {
@@ -24,6 +24,7 @@ googleSearchAndThen() {
     local prefix="${1}"
     local func="${2}"
     local subCommand="${3}"
+
     case "${subCommand}" in
         url)
             local url="${4}"
@@ -38,12 +39,28 @@ googleSearchAndThen() {
             local search=("${@:4}")
             googleAndThen "${func}" --site "${prefix}" "${search[@]}"
             ;;
+        complete)
+            complete -F googleSearchAndThen_caller_complete "${name}"
+            ;;
         *)
-            >&2 echo "Usage: ${name} [url | code | search] <args>"
-			return 1
-			;;
+            echo >&2 "Usage: ${name} [url | code | search] <args>"
+            return 1
+            ;;
     esac
 }
 
 export -f googleAndThen
 export -f googleSearchAndThen
+
+googleSearchAndThen_caller_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    if [[ ${i} -ne 1 ]]; then
+        return
+    fi
+    compgen -W "url code search" -- "${arg}"
+}
+
+googleSearchAndThen_caller_complete() {
+    COMPREPLY+=($(googleSearchAndThen_caller_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+}

@@ -7,4 +7,6 @@ yt2mp3() {
     googleSearchAndThen "https://www.youtube.com/watch?v=" yt2mp3Url "${@}"
 }
 
+yt2mp3 complete
+
 export -f yt2mp3

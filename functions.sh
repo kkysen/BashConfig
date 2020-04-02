@@ -23,7 +23,6 @@ cd "${FUNCTIONS}"
 . ip.sh
 . installPython.sh
 . findOpen.sh
-. music.sh
 . gui.sh
 . browsers.sh
 . ls.sh
@@ -46,13 +45,14 @@ cd "${FUNCTIONS}"
 . zoxide.sh
 . skim.sh
 . tre.sh
-. vidcloud.sh
 . openAll.sh
-. viki.sh
 . weather.sh
 . history.sh
 . chmodAll.sh
 . google.sh
+. viki.sh
+. yt2mp3.sh
+. vidcloud.sh
 . installLocal.sh
 . map.sh
 . ide.sh
