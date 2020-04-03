@@ -42,7 +42,7 @@ fs_compgen() {
 }
 
 fs_complete() {
-    COMPREPLY+=($(fs_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+    compReply fs_compgen
 }
 
 complete -F fs_complete fs

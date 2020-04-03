@@ -68,7 +68,7 @@ bashrc_compgen() {
 }
 
 bashrc_complete() {
-    COMPREPLY+=($(bashrc_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+    compReply bashrc_compgen
 }
 
 rc() {

@@ -27,7 +27,7 @@ findLast_compgen() {
 }
 
 findLast_complete() {
-    COMPREPLY+=($(findLast_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+    compReply findLast_compgen
 }
 
 complete -F findLast_complete findLast

@@ -63,6 +63,7 @@ cd "${FUNCTIONS}"
 . cdAny.sh
 . fs.sh
 . removeOldFiles.sh
+. compReply.sh
 
 cd ~-
 

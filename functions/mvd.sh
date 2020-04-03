@@ -21,10 +21,19 @@ mvd() {
     fi
 }
 
-mvd_complete() {
-    local IFS=$'\n'
-    COMPREPLY+=($(cd "${DOWNLOADS}" && compgen -f -- "${COMP_WORDS[1]}"))
+export -f mvd
+
+mvd_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    if [[ ${i} -ne 1 ]]; then
+        return
+    fi
+    cd "${DOWNLOADS}" && compgen -fd -- "${arg}"
 }
 
-export -f mvd
+mvd_complete() {
+    compReply mvd_compgen
+}
+
 complete -F mvd_complete mvd

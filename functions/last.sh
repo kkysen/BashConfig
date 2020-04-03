@@ -65,7 +65,7 @@ last_compgen() {
 }
 
 last_complete() {
-    COMPREPLY+=($(last_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+    compReply last_compgen
 }
 
 complete -F last_complete last

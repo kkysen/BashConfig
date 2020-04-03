@@ -62,5 +62,5 @@ googleSearchAndThen_caller_compgen() {
 }
 
 googleSearchAndThen_caller_complete() {
-    COMPREPLY+=($(googleSearchAndThen_caller_compgen "${COMP_CWORD}" "${COMP_WORDS[${COMP_CWORD}]}"))
+    compReply googleSearchAndThen_caller_compgen
 }
