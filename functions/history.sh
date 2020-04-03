@@ -6,7 +6,7 @@ export HISTCONTROL=
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-export HISTSIZE=10000
+export HISTSIZE=1000000000
 export HISTFILESIZE=-1
 
 export HISTTIMEFORMAT="%c "
