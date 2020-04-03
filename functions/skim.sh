@@ -8,7 +8,7 @@ skim() {
     else
         local dir=""
     fi
-    (cd "${dir}" && SKIM_DEFAULT_COMMAND="${SKIM}" command sk "${@}")
+    (cd "${dir}" && SKIM_DEFAULT_COMMAND="${SKIM}" command sk --multi "${@}")
 }
 
 sk() {
