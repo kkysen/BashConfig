@@ -4,10 +4,10 @@ async function run() {
     const buffer = await fs.readFile("/dev/stdin");
     const inputString = buffer.toString("utf-8");
     const input = JSON.parse(inputString);
-    const [, , js] = process.argv;
+    const [, , js, ...args] = process.argv;
     // js should be of the form `input => output`
-    const func = new Function(`return ${js}`)();
-    const output = func(input);
+    const func = new Function("args", "fs", `return ${js}`)(args, fs);
+    const output = await func(input);  // allow promises
     const outputString = typeof output === "string"
         ? output
         : Array.isArray(output) && JSON.stringify(output).length < 80
