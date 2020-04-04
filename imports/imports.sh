@@ -3,8 +3,8 @@ export PATH="${WORKSPACE}/bin:${PATH}" # fnm on path
 . "${FUNCTIONS}/node.sh" # node_mjs for import
 . "${FUNCTIONS}/import.sh" # import func
 
-import "${FUNCTIONS}" "${IMPORTS}/config.functions.txt"
-import "${CONFIGS}" "${IMPORTS}/config.txt"
+import "${FUNCTIONS}" "${IMPORTS}/configs.functions.txt"
+import "${CONFIGS}" "${IMPORTS}/configs.txt"
 
 # If not running interactively, don't do anything
 case $- in
@@ -12,7 +12,7 @@ case $- in
       *) return;;
 esac
 
-import "${CONFIGS}" "${IMPORTS}/config.interactive.txt"
+import "${CONFIGS}" "${IMPORTS}/configs.interactive.txt"
 
 setPath
 
