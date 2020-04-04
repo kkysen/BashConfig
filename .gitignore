@@ -1,6 +1,6 @@
 .idea/
 
-/config/*.gen.sh
+/config/*.generated.sh
 /completions/
 
 __pycache__/

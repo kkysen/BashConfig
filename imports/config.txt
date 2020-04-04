@@ -1,0 +1,15 @@
+timezone
+path
+xdg
+sshd
+aliases
+fnm
+ssh
+rust
+perl
+broot
+brew
+pkgConfig
+pyenv
+thefuck
+fzf

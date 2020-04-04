@@ -3,5 +3,4 @@
 # for examples
 
 . /mnt/c/Users/Khyber/workspace/Bash/config/dirs.sh
-. "${BASH_DIR}/config.sh"
-. "${BASH_DIR}/functions.sh"
+. "${IMPORTS}/imports.sh"

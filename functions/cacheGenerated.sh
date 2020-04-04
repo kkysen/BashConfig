@@ -8,9 +8,9 @@ cacheGenerated() {
 
 genConfig() {
     local name="${1}"
-    local dir="${CONFIGS}"
-    local generator="${dir}/${name}.sh"
-    local generated="${dir}/${name}.gen.sh"
+    local dir="${2}"
+    local generator="${dir}/${name}.generate.sh"
+    local generated="${dir}/${name}.generated.sh"
     cacheGenerated "${generator}" "${generated}"
     . "${generated}"
 }
