@@ -3,7 +3,13 @@ import { promises as fs } from "fs";
 async function run() {
     const buffer = await fs.readFile("/dev/stdin");
     const inputString = buffer.toString("utf-8");
-    const input = JSON.parse(inputString);
+    const input = (() => {
+        try {
+            return JSON.parse(inputString);
+        } catch {
+            return inputString;
+        }
+    })();
     const [, , js, ...args] = process.argv;
     // js should be of the form `input => output`
     const func = new Function("args", "fs", `return ${js}`)(args, fs);
@@ -21,5 +27,6 @@ async function run() {
         await run();
     } catch (e) {
         console.error(e);
+        process.exit(1);
     }
 })();
