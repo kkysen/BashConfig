@@ -26,16 +26,15 @@ bashrc() {
             cd "${BASH_DIR}"
             ;;
         "func" | "functions")
-            . "${BASH_DIR}/functions.sh"
+            importFunctions
             ;;
         "config")
-            . "${BASH_DIR}/config.sh"
+            importConfigs
             ;;
         "")
-            . ~/.bashrc
+            importAll
             ;;
         "sh")
-            fd --base-directory "${FUNCTIONS}" --type file --extension sh | skim
             local file=$(fd --base-directory "${FUNCTIONS}" --type file --extension sh | skim)
             if [[ "${file}" == "" ]]; then
                 return 1
