@@ -2,4 +2,4 @@ misc
 colors
 completion
 title
-fzf
+# fzf
