@@ -30,6 +30,11 @@ addPrompt() {
 
 dedupePrompt() {
     dedupeVar PROMPT_COMMAND "${PROMPT_DELIM}" --no-trailing-delimiter
+    export PROMPT_COMMAND="$( \
+        printf "%s" "${PROMPT_COMMAND}" \
+            | sd --string-mode ";;" ";" \
+            | sd "^;" "" \
+    )"
 }
 
 export -f addPromptBefore
