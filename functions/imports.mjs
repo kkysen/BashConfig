@@ -19,6 +19,14 @@ async function run() {
     const notEmpty = a => a.length > 0;
     const isFile = stats => stats.isFile();
 
+    const now = Date.now();
+    function daysOld(stats) {
+        const diffTime = now - stats.mtime;
+        return diffTime / (1000 * 60 * 60 * 24);
+    }
+
+    const maxDaysOld = 1;
+
     const contents = await fs.readFile(`${importFile}`, "utf8");
     const names = contents.split("\n")
         .map(line => line.split("#")[0].trim())
@@ -35,16 +43,26 @@ async function run() {
         })
         .filter(notEmpty);
     const imports = (await Promise.all(names.map(async name => {
-        const path = `${dir}/${name}.sh`;
-        const generatorPath = `${dir}/${name}.generate.sh`;
-        if (await existsAnd(path, isFile)) {
-            return `. "${path}"`;
+        const paths = {
+            normal: `${dir}/${name}.sh`,
+            generator: `${dir}/${name}.generate.sh`,
+            generated: `${dir}/${name}.generated.sh`,
+        };
+        const lines = [];
+        if (await existsAnd(paths.normal, isFile)) {
+            lines.push(`. "${paths.normal}"`);
         }
-        if (await existsAnd(generatorPath, isFile)) {
-            return `genConfig "${name}" "${dir}"`;
+        if (await existsAnd(paths.generator, isFile)) {
+            const cached = await existsAnd(paths.generated, stats => daysOld(stats) < maxDaysOld);
+            if (!cached) {
+                lines.push(`"${paths.generator}" > "${paths.generated}"`);
+            }
+            lines.push(`. "${paths.generated}"`);
         }
-        warn(name, "cannot be found");
-        return "";
+        if (lines.length === 0) {
+            warn(name, "cannot be found");
+        }
+        return lines.join("\n");
     }))).filter(notEmpty);
     const script = imports.join("\n");
     console.log(script);
