@@ -12,4 +12,3 @@ brew
 pkgConfig
 pyenv
 thefuck
-fzf

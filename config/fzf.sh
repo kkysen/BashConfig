@@ -1,12 +1,7 @@
 # Setup fzf
 # ---------
 FZF_HOME="${HOMEBREW_PREFIX}/opt/fzf"
-FZF_BIN="${FZF_HOME}/bin"
 FZF_SHELL="${FZF_HOME}/shell"
-
-if [[ ! "${PATH}" == *"${FZF_BIN}"* ]]; then
-    export PATH="${PATH}:${FZF_BIN}"
-fi
 
 # Auto-completion
 # ---------------
