@@ -11,4 +11,4 @@ fi
 
 # Key bindings
 # ------------
-. "${FZF_SHELL}/key-bindings.bash"
+#. "${FZF_SHELL}/key-bindings.bash"
