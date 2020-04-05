@@ -1,1 +1,1 @@
-brew shellenv
+~/.linuxbrew/bin/brew shellenv
