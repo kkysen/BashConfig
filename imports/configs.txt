@@ -11,5 +11,5 @@ broot
 brew
 pkgConfig
 pyenv
-pyenv.virtualenv
+# pyenv.virtualenv
 thefuck
