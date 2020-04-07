@@ -23,7 +23,7 @@ fall() {
     local openArgs="${1}"
     local locateArgs="${2}"
     # shellcheck disable=SC2086
-    mapOpenWith $openArgs < <(skall $locateArgs)
+    mapOpenWith "" "${openArgs}" < <(skall $locateArgs)
 }
 
 export -f locate
