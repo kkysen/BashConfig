@@ -3,3 +3,4 @@ colors
 completion
 title
 # fzf
+skim
