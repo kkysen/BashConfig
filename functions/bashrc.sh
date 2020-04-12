@@ -26,13 +26,13 @@ bashrc() {
             cd "${BASH_DIR}"
             ;;
         "func" | "functions")
-            importFunctions
+            importAll functions
             ;;
         "config")
-            importConfigs
+            importAll configs
             ;;
         "")
-            importAll
+            importAll all
             ;;
         "sh")
             local file=$(fd --base-directory "${FUNCTIONS}" --type file --extension sh | skim)
