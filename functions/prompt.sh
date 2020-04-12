@@ -1,4 +1,4 @@
-PROMPT_DELIM="; "
+PROMPT_DELIM=";"
 
 prompt() {
     echo "${PROMPT_COMMAND}" | sd -s "${PROMPT_DELIM}" $'\n'
