@@ -4,3 +4,4 @@ completion
 title
 # fzf
 skim
+starship
