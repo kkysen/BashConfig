@@ -9,9 +9,7 @@ async function existsAnd(path, statsFunc) {
     }
 }
 
-async function run() {
-    const [, , dir, importFile] = process.argv;
-
+async function getImportScript(dir, importFile) {
     function warn(name, message) {
         console.warn(`import "${name}" for dir "${dir}" in file "${importFile}": ${message}`);
     }
@@ -64,7 +62,12 @@ async function run() {
         }
         return lines.join("\n");
     }))).filter(notEmpty);
-    const script = imports.join("\n");
+    return imports.join("\n");
+}
+
+async function run() {
+    const [, , dir, importFile] = process.argv;
+    const script = await getImportScript(dir, importFile);
     console.log(script);
 }
 
