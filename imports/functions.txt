@@ -67,3 +67,4 @@ compReply
 update
 cargo
 hunter
+kill
