@@ -3,7 +3,7 @@ selectAndKill() {
         awk '$5 != "00:00"' |
         skim --tac --header-lines 1 |
         awk '{print $1}' |
-        xargs "kill"
+        xargs --no-run-if-empty "kill"
 }
 
 kill() {
