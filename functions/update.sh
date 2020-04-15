@@ -55,7 +55,7 @@ updateNpm() {
 }
 
 updateYarn() {
-    yarn global upgrade
+    (cd "${WIN_HOME}" && yarn global upgrade)
 }
 
 updateNode() {
