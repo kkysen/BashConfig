@@ -68,3 +68,4 @@ update
 cargo
 hunter
 kill
+pselect

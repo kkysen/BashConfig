@@ -1,9 +1,5 @@
 selectAndKill() {
-    ps -e --format pid,ppid,pcpu,pmem,etime,user,comm,args |
-        awk '$5 != "00:00"' |
-        skim --tac --header-lines 1 |
-        awk '{print $1}' |
-        xargs --no-run-if-empty "kill"
+    pselect | xargs --no-run-if-empty "kill"
 }
 
 kill() {
