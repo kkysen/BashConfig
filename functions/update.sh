@@ -111,6 +111,20 @@ updateCMake() {
     ln -s "${dir}" "${current}"
 }
 
+updateStack() {
+    stack upgrade
+    stack update
+}
+
+updateStackPackages() {
+    stack install pandoc
+}
+
+updateHaskell() {
+    updateStack
+    updateStackPackages
+}
+
 update() {
     rc
     set -x
@@ -119,6 +133,7 @@ update() {
     updateRust
     updatePython
     updateJS
+    updateHaskell
     updateTmp
     updateLolcate
     set +x
