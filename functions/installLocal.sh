@@ -11,14 +11,22 @@ installLocal() {
             return 1
         fi
     fi
-    ln -s "$(realpath "${path}")" "${WORKSPACE_BIN}"
+    path=$(realpath "${path}")
+    if isWindowsExe "${path}"; then
+        # WSL can't run a Windows exe through a symlink
+        # see https://github.com/microsoft/WSL/issues/3999
+        local execScriptPath="${WORKSPACE_BIN}/$(basename "${path}")"
+        printf "#! /bin/dash\nexec \"%s\" \"\${@}\"" "${path}" > "${execScriptPath}"
+    else
+        ln -s "${path}" "${WORKSPACE_BIN}"
+    fi
 }
 
 export -f installLocal
 
 uninstallLocal() {
     local program="${1}"
-    rm "${WORKSPACE_BIN}/${program}"
+    rm "${WORKSPACE_BIN}/$(basename "${program}")"
 }
 
 export -f uninstallLocal

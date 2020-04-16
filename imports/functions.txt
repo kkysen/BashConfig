@@ -70,3 +70,4 @@ hunter
 kill
 pselect
 rwhich
+isWindowsExe

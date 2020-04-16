@@ -21,9 +21,7 @@ execute() {
     local executable="${1}"
     local args=("${@:2}")
 
-    local fileType=$(file "${executable}")
-
-    if [[ "${fileType}" == *"Windows"* ]] || [[ "${fileType}" == *"DOS"* ]]; then
+    if isWindowsExe "${executable}"; then
         for i in "${!args[@]}"; do
             args[i]=$(toWinPath "${args[i]}")
         done
