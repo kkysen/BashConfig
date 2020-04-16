@@ -16,3 +16,4 @@ fi
 
 genCompletion rustup
 genCompletion cargo
+genCompletion rclone
