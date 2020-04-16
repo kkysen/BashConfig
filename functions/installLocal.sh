@@ -15,3 +15,10 @@ installLocal() {
 }
 
 export -f installLocal
+
+uninstallLocal() {
+    local program="${1}"
+    rm "${WORKSPACE_BIN}/${program}"
+}
+
+export -f uninstallLocal
