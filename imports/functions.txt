@@ -69,3 +69,4 @@ cargo
 hunter
 kill
 pselect
+rwhich
