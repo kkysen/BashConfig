@@ -30,3 +30,18 @@ uninstallLocal() {
 }
 
 export -f uninstallLocal
+
+uninstallLocal_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    if [[ ${i} -ne 1 ]]; then
+        return
+    fi
+    (cd "${WORKSPACE_BIN}" && compgen -f -- "${arg}")
+}
+
+uninstallLocal_complete() {
+    compReply uninstallLocal_compgen
+}
+
+complete -F uninstallLocal_complete uninstallLocal
