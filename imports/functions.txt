@@ -73,4 +73,5 @@ rwhich
 isCommand
 rclone
 onPath
+commands
 isWindowsExe
