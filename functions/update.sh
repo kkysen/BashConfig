@@ -4,30 +4,61 @@ updateApt() {
     sudo apt autoremove
 }
 
+export -f updateApt
+
 updateBrew() {
     brew upgrade
 }
+
+export -f updateBrew
 
 updateCargo() {
     cargo install-update --all
 }
 
+export -f updateCargo
+
+updateCargo.exe() {
+    win cargo install-update --all
+}
+
+export -f updateCargo.exe
+
 updateRustup() {
     rustup update
 }
+
+export -f updateRustup
+
+updateRustup.exe() {
+    win rustup update
+}
+
+export -f updateRustup.exe
 
 updateRust() {
     updateRustup
     updateCargo
 }
 
+export -f updateRust
+
+updateRust.exe() {
+    win updateRustup
+    win updateCargo
+}
+
 updateLolcate() {
     lolcate --update --all
 }
 
+export -f updateLolcate
+
 updateTmp() {
     cleanTmp
 }
+
+export -f updateTmp
 
 pipUpdateRequirements() {
     python -m pip freeze |
@@ -41,31 +72,45 @@ updatePip() {
     pyenv global "${version}"
 }
 
+export -f updatePip
+
 updatePyenv() {
     pyenv update
 }
+
+export -f updatePyenv
 
 updatePython() {
     updatePyenv
     updatePip
 }
 
+export -f updatePython
+
 updateNpm() {
     npm update -g
 }
+
+export -f updateNpm
 
 updateYarn() {
     (cd "${WIN_HOME}" && yarn global upgrade)
 }
 
+export -f updateYarn
+
 updateNode() {
     fnm install latest
 }
+
+export -f updateNode
 
 updateFnm() {
     curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh |
         bash -s -- --skip-shell
 }
+
+export -f updateFnm
 
 updateJS() {
     updateFnm
@@ -74,9 +119,13 @@ updateJS() {
     updateYarn
 }
 
+export -f updateJS
+
 updateNinja() {
     (cd "${WORKSPACE}/C++/ninja" && git pull && ninja)
 }
+
+export -f updateNinja
 
 updateCMake() {
     local user="Kitware"
@@ -111,19 +160,27 @@ updateCMake() {
     ln -s "${dir}" "${current}"
 }
 
+export -f updateNinja
+
 updateStack() {
     stack upgrade
     stack update
 }
 
+export -f updateStack
+
 updateStackPackages() {
     stack install pandoc
 }
+
+export -f updateStackPackages
 
 updateHaskell() {
     updateStack
     updateStackPackages
 }
+
+export -f updateHaskell
 
 update() {
     rc
@@ -131,6 +188,7 @@ update() {
     updateApt
     updateBrew
     updateRust
+    win updateRust
     updatePython
     updateJS
     updateHaskell
@@ -138,23 +196,5 @@ update() {
     updateLolcate
     set +x
 }
-
-export -f updateApt
-export -f updateBrew
-export -f updateCargo
-export -f updateRustup
-export -f updateRust
-export -f updateLolcate
-export -f updateTmp
-export -f updatePip
-export -f updatePyenv
-export -f updatePython
-export -f updateNpm
-export -f updateYarn
-export -f updateNode
-export -f updateFnm
-export -f updateJS
-export -f updateNinja
-export -f updateCMake
 
 export -f update
