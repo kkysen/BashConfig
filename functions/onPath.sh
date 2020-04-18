@@ -38,7 +38,7 @@ onPathMeta() {
         echo -n " | rg --null-data --invert-match '${skip}'"
     fi
     echo -n "${xargs}"
-    echo -n " fd --hidden --no-ignore --case-sensitive --max-depth 1"
+    echo -n " fd --hidden --no-ignore --case-sensitive --exact-depth 1"
     if ${basenames} || ${null}; then
         echo -n " -0"
     fi
@@ -95,11 +95,16 @@ onPath() {
         newlines=(tr '\0' '\n')
     fi
 
+    # for more correctness, could use --follow --type executable for fd, but much slower b/c need to stat every file
     printf "%s" "${PATH}" |
         tr ':' '\0' |
         "${filter[@]}" |
         xargs --no-run-if-empty -0 \
-            fd --hidden --no-ignore --case-sensitive --max-depth 1 -0 . |
+            fd --hidden \
+                --no-ignore \
+                --case-sensitive \
+                --exact-depth 1 \
+                -0 . |
         "${basename[@]}" |
         "${newlines[@]}"
 }

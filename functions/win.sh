@@ -3,6 +3,8 @@ win() {
     "${exe}.exe" "${@:2}"
 }
 
+export -f win
+
 exeCommands() {
     commands --functions --path | rg "^(.*)\.exe$" --replace '$1'
 }
