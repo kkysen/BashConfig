@@ -6,7 +6,7 @@ handleUrls() {
         if [[ "${url}" != "" ]]; then
             "${func}" "${url}"
         fi
-    done <"${pipe}"
+    done < "${pipe}"
 }
 
 googleAndThen() {

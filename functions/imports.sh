@@ -116,10 +116,10 @@ importAll_compgen() {
                 functions | function | func | f)
                     compgen -W "${all}" -- "${subType}"
                     ;;
-                all | a | "")
-                    ;;
-                *)
-                    ;;
+                all | a | "") ;;
+
+                *) ;;
+
             esac
             ;;
     esac

@@ -7,9 +7,9 @@ jetBrainsIdePaths() {
         -0 \
         'start "" (.*) %\*' \
         --replace '$1' \
-        "${dir}" \
-        | sed 's/\r//' \
-        | map wslpath -u
+        "${dir}" |
+        sed 's/\r//' |
+        map wslpath -u
 }
 
 jetBrainsIdePathToName() {
@@ -42,7 +42,7 @@ jetBrainsIdeExact() {
     local ide="${1}"
     local path=$(jetBrainsIdeSelect "${ide}")
     if [[ "${path}" == "" ]]; then
-        >&2 echo "Couldn't find any JetBrains IDEs matching \`${ide}\`"
+        echo >&2 "Couldn't find any JetBrains IDEs matching \`${ide}\`"
         return 1
     fi
     guiAt "${path}" "${@:2}"

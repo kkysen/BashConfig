@@ -1,4 +1,3 @@
-
 work() {
     fo "${WORKSPACE}" "${@}"
 }

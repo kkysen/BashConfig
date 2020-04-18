@@ -11,8 +11,8 @@ arbttRaw() {
 export -f arbttRaw
 
 arbttRaw_compgen() {
-    fd --base-directory "${ARBTT_BIN}" "arbtt" \
-        | sd "arbtt-(.*)\.exe" '$1'
+    fd --base-directory "${ARBTT_BIN}" "arbtt" |
+        sd "arbtt-(.*)\.exe" '$1'
 }
 
 arbttRaw_complete() {
@@ -22,7 +22,7 @@ arbttRaw_complete() {
 complete -F arbttRaw_complete arbttRaw
 
 arbtt() {
-#    arbttRaw stats --logfile="${ARBTT_DIR}/capture.log" --categorizefile="${ARBTT_DIR}/categorize.cfg" "${@}"
+    #    arbttRaw stats --logfile="${ARBTT_DIR}/capture.log" --categorizefile="${ARBTT_DIR}/categorize.cfg" "${@}"
     # TODO format this better w/ categorize.cfg if I want better stats
     arbttRaw stats "${@}"
 }

@@ -152,7 +152,7 @@ updateCMake() {
         local downloadUrl="https://github.com/${releases}/download/v${version}/${fileName}"
         curl --location --output "${installerPath}" "${downloadUrl}"
     fi
-    if ! (cd "${cmakeDir}" && "${installerPath}") < <(echo yy) >/dev/null; then
+    if ! (cd "${cmakeDir}" && "${installerPath}") < <(echo yy) > /dev/null; then
         return 1
     fi
 

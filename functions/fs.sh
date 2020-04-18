@@ -23,6 +23,7 @@ fs() {
         *)
             echo >&2 "Usage: ${FUNCNAME[0]} <dir> [name | root | type | options | all]"
             return 1
+            ;;
     esac
     echo "${mountOptions}" | awk "{print \$${col}}"
 }

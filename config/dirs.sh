@@ -29,7 +29,7 @@ export APP_DATA="${WIN_HOME}/AppData"
 export ONE_MISC="${DOCUMENTS}/misc"
 export ONE_MUSIC="${ONE_DRIVE}/Music/Phone"
 export ONE_VIDEO="${ONE_MISC}/Videos"  # TODO move
-export ONE_PHOTOS="${ONE_MISC}/Photos"  # TODO move
+export ONE_PHOTOS="${ONE_MISC}/Photos" # TODO move
 
 export BASH_HOME="${BASH_DIR}/home"
 export CONFIG_DIR="${BASH_HOME}/.config"

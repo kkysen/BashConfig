@@ -13,15 +13,16 @@ convertTimeToPrintf() {
         *)
             echo "created modified accessed"
             return 1
+            ;;
     esac
 }
 
 lastRaw() {
     local timeFormat="${1}"
     printf ".\0"
-    find "${@:2}" -printf "%${timeFormat}s\t%p\0" \
-        | sort -nrz \
-        | cut -f2 -z
+    find "${@:2}" -printf "%${timeFormat}s\t%p\0" |
+        sort -nrz |
+        cut -f2 -z
 }
 
 last() {
@@ -47,9 +48,9 @@ last() {
     fi
 
     # huniq removes duplicate "."
-    lastRaw "${timeFormat}" "${@:2}" \
-        | huniq -0 \
-        | tr '\0' "${delim}"
+    lastRaw "${timeFormat}" "${@:2}" |
+        huniq -0 |
+        tr '\0' "${delim}"
 }
 
 export -f last

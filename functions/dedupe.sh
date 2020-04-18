@@ -8,9 +8,9 @@ dedupeWithTrailingDelimiter() {
     # so I chose '\1', which should be uncommon
     local delim="${1}"
     local internalDelim=$'\1'
-    sd --string-mode "${delim}" "${internalDelim}" \
-        | huniq -d "${internalDelim}" \
-        | sd --string-mode "${internalDelim}" "${delim}"
+    sd --string-mode "${delim}" "${internalDelim}" |
+        huniq -d "${internalDelim}" |
+        sd --string-mode "${internalDelim}" "${delim}"
 }
 
 dedupe() {
@@ -32,7 +32,7 @@ dedupe() {
     if ! ${trailingDelimiter}; then
         local trailing="${deduped: -${#delim}}"
         if [[ "${trailing}" == "${delim}" ]]; then
-            deduped="${deduped:0: -${#delim}}"
+            deduped="${deduped:0:-${#delim}}"
         fi
     fi
     printf "%s" "${deduped}"

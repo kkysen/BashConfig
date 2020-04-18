@@ -17,8 +17,8 @@ openWith() {
         echo >&2 "Usage: ${FUNCNAME[0]} <dir> <opener> <path>"
         return 1
     fi
-    local dir="${1}"  # default ""
-    local opener="${2}"  # default ""
+    local dir="${1}"    # default ""
+    local opener="${2}" # default ""
     local path="${3}"
 
     if [[ "${dir}" == "" ]]; then

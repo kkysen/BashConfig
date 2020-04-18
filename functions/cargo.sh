@@ -16,15 +16,16 @@ cargoSrc() {
         local versionedCrate="${crateName}-${version}"
     fi
     local srcsDir="${CARGO_HOME}/registry/src"
-    local localDir=$(fd \
-        --no-ignore \
-        --hidden \
-        --case-sensitive \
-        --base-directory "${srcsDir}" \
-        --max-depth 2 \
-        --type directory \
-        --fixed-strings \
-        "${versionedCrate}" \
+    local localDir=$(
+        fd \
+            --no-ignore \
+            --hidden \
+            --case-sensitive \
+            --base-directory "${srcsDir}" \
+            --max-depth 2 \
+            --type directory \
+            --fixed-strings \
+            "${versionedCrate}"
     )
     local dir="${srcsDir}/${localDir}"
     echo "${dir}"

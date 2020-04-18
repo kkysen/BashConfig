@@ -11,7 +11,7 @@ clone() {
         userName=kkysen
     fi
 
-	  git clone "git@github.com:${userName}/${repoName}.git"
+    git clone "git@github.com:${userName}/${repoName}.git"
 }
 
 export -f clone

@@ -26,7 +26,7 @@ commands() {
             --path)
                 path=true
                 ;;
-            --all|"")
+            --all | "")
                 builtins=true
                 aliases=true
                 functions=true

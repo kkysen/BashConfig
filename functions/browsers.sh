@@ -11,11 +11,11 @@ browserPath() {
             echo "/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe"
             ;;
         edge)
-            >&2 echo "edge not working yet"
+            echo >&2 "edge not working yet"
             return 1
             ;;
         *)
-            >&2 "\"${browser}\" is not a recognized browser"
+            echo >&2 "\"${browser}\" is not a recognized browser"
             return 1
             ;;
     esac

@@ -6,7 +6,7 @@ FZF_SHELL="${FZF_HOME}/shell"
 # Auto-completion
 # ---------------
 if [[ $- == *i* ]]; then
-    . "${FZF_SHELL}/completion.bash" 2>/dev/null
+    . "${FZF_SHELL}/completion.bash" 2> /dev/null
 fi
 
 # Key bindings

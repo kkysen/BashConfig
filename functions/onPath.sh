@@ -73,7 +73,7 @@ onPath() {
             --skip-default)
                 skip="WINDOWS|Program Files|mingw"
                 ;;
-            --null|-0)
+            --null | -0)
                 null=true
                 ;;
         esac
@@ -101,10 +101,10 @@ onPath() {
         "${filter[@]}" |
         xargs --no-run-if-empty -0 \
             fd --hidden \
-                --no-ignore \
-                --case-sensitive \
-                --exact-depth 1 \
-                -0 . |
+            --no-ignore \
+            --case-sensitive \
+            --exact-depth 1 \
+            -0 . |
         "${basename[@]}" |
         "${newlines[@]}"
 }
