@@ -1,1 +1,3 @@
-eval "$(fnm env --multi)"
+if [[ ! -d "${FNM_DIR}" ]]; then
+    eval "$(fnm env --multi)"
+fi
