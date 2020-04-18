@@ -70,4 +70,6 @@ hunter
 kill
 pselect
 rwhich
+isCommand
+rclone
 isWindowsExe
