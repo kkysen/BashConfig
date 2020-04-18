@@ -160,7 +160,7 @@ updateCMake() {
     ln -s "${dir}" "${current}"
 }
 
-export -f updateNinja
+export -f updateCMake
 
 updateStack() {
     stack upgrade
