@@ -28,8 +28,11 @@
             "name": "Ubuntu-18.04",
             "commandline": "wsl.exe bash",
             "source": "Windows.Terminal.Wsl",
-            "fontSize": 9,
-            "fontFace": "Cascadia Code PL"
+            // "fontFace": "Consolas",
+            // "fontFace": "Cascadia Code PL",
+            // "fontFace": "JetBrains Mono",
+            "fontFace": "Powerline Consolas",
+            "fontSize": 9
         },
         {
             "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
