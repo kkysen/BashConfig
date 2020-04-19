@@ -18,12 +18,15 @@ async function getImportScript(dir, importFile) {
     const isFile = stats => stats.isFile();
 
     const now = Date.now();
+
     function daysOld(stats) {
         const diffTime = now - stats.mtime;
         return diffTime / (1000 * 60 * 60 * 24);
     }
 
     const maxDaysOld = 1;
+
+    const completionsDir = process.env.COMPLETIONS;
 
     const contents = await fs.readFile(`${importFile}`, "utf8");
     const names = contents.split("\n")
@@ -41,23 +44,41 @@ async function getImportScript(dir, importFile) {
         })
         .filter(notEmpty);
     const imports = (await Promise.all(names.map(async name => {
+        const base = `${dir}/${name}`;
         const paths = {
-            normal: `${dir}/${name}.sh`,
-            generator: `${dir}/${name}.generate.sh`,
-            generated: `${dir}/${name}.generated.sh`,
+            normal: {
+                from: `${base}.sh`,
+                load: true,
+            },
+            generated: {
+                from: `${base}.generate.sh`,
+                to: `${base}.generated.sh`,
+                load: true,
+            },
+            completion: {
+                from: `${base}.complete.sh`,
+                to: `${completionsDir}/${name}`,
+                load: false,
+            },
         };
         const lines = [];
-        if (await existsAnd(paths.normal, isFile)) {
-            lines.push(`. "${paths.normal}"`);
-        }
-        if (await existsAnd(paths.generator, isFile)) {
-            const cached = await existsAnd(paths.generated, stats => daysOld(stats) < maxDaysOld);
-            if (!cached) {
-                lines.push(`"${paths.generator}" > "${paths.generated}"`);
+        let numFound = 0;
+        for (const map of Object.values(paths)) {
+            if (!await existsAnd(map.from, isFile)) {
+                continue;
             }
-            lines.push(`. "${paths.generated}"`);
+            numFound++;
+            if (map.to) {
+                const cached = await existsAnd(map.to, stats => daysOld(stats) < maxDaysOld);
+                if (!cached) {
+                    lines.push(`"${map.from}" > "${map.to}"`);
+                }
+            }
+            if (map.load) {
+                lines.push(`. "${map.to || map.from}"`); // TODO change || to ??
+            }
         }
-        if (lines.length === 0) {
+        if (numFound === 0) {
             warn(name, "cannot be found");
         }
         return lines.join("\n");

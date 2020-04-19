@@ -14,6 +14,4 @@ if ! shopt -oq posix; then
     fi
 fi
 
-genCompletion rustup
-genCompletion cargo
-genCompletion rclone
+import "${GEN_COMPLETIONS}" "${IMPORTS}/completions.txt"

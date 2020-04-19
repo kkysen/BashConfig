@@ -1,4 +1,4 @@
-import() {
+genImports() {
     if [[ $# -ne 2 ]]; then
         echo >&2 "Usage: ${FUNCNAME[0]} <dir> <importFile>"
         return 1
@@ -16,7 +16,17 @@ import() {
         return 1
     fi
 
-    eval "$(node_mjs "${FUNCTIONS}/imports.mjs" "${dir}" "${importFile}")"
+    node_mjs "${FUNCTIONS}/imports.mjs" "${dir}" "${importFile}"
+}
+
+export -f genImports
+
+import() {
+    local imports
+    if ! imports="$(genImports "${@}")"; then
+        return 1
+    fi
+    eval "${imports}"
 }
 
 export -f import
