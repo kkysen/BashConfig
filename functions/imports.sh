@@ -1,4 +1,4 @@
-importConfigFunctions() {
+importConfigsFunctions() {
     import "${FUNCTIONS}" "${IMPORTS}/configs.functions.txt"
 }
 
@@ -14,6 +14,10 @@ importConfigsInteractive() {
     esac
 
     import "${CONFIGS}" "${IMPORTS}/configs.interactive.txt"
+}
+
+importCompletions() {
+    import "${GEN_COMPLETIONS}" "${IMPORTS}/completions.txt"
 }
 
 importFunctions() {
@@ -39,7 +43,7 @@ importAll() {
         configs | conf)
             case "${subType}" in
                 functions | func)
-                    importConfigFunctions
+                    importConfigsFunctions
                     ;;
                 main)
                     importConfigsMain
@@ -60,6 +64,7 @@ importAll() {
             # only run if importAll is not called from importAll
             if ! ${internal}; then
                 setPath
+                dedupePrompt
             fi
             ;;
         functions | func)
@@ -77,12 +82,24 @@ importAll() {
                 dedupePrompt
             fi
             ;;
+        completions | comp)
+            case "${subType}" in
+                all | "")
+                    importCompletions
+                    ;;
+                *)
+                    importAll_usage
+                    return 1
+                    ;;
+            esac
+            ;;
         all | "")
             # these are internal calls, so setPath and dedupePrompt won't get run
             importAll configs all
             setPath
             importAll functions all
             dedupePrompt
+            # don't do completions here
             ;;
         *)
             importAll_usage

@@ -22,11 +22,14 @@ cargoSrc() {
             --hidden \
             --case-sensitive \
             --base-directory "${srcsDir}" \
-            --max-depth 2 \
+            --exact-depth 2 \
             --type directory \
             --fixed-strings \
             "${versionedCrate}"
     )
+    # ideally, I could do an exact match with `fd`,
+    # so just a stat() existence check could be used for the last level
+    # instead of looping over readdir()
     local dir="${srcsDir}/${localDir}"
     echo "${dir}"
 }

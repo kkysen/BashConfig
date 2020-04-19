@@ -14,4 +14,4 @@ if ! shopt -oq posix; then
     fi
 fi
 
-import "${GEN_COMPLETIONS}" "${IMPORTS}/completions.txt"
+importAll completions all
