@@ -3,6 +3,8 @@ locate() {
     lolcate "${@}"
 }
 
+export -f locate
+
 locateInDir() {
     local dir="${DIR}"
     if [[ ! "${dir}" == "" ]]; then
@@ -15,9 +17,13 @@ locateInDir() {
     locate "${@}" 2> /dev/null | "${filter}"
 }
 
+export -f locateInDir
+
 skall() {
     locateInDir "${@}" | skim
 }
+
+export -f skall
 
 fall() {
     local openArgs="${1}"
@@ -26,7 +32,16 @@ fall() {
     mapOpenWith "" "${openArgs}" < <(skall $locateArgs)
 }
 
-export -f locate
-export -f locateInDir
-export -f skall
 export -f fall
+
+locate.exe() {
+    # Everything program, much faster than lolcate and always up-to-date
+    # can't integrate with skim as well though, but it has its own skim in a GUI
+    if [[ $# -eq 0 ]]; then
+        win everything
+    else
+        win es "${@}" | map wslpath -u
+    fi
+}
+
+export -f locate.exe
