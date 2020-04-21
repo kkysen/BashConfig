@@ -1,8 +1,8 @@
-import { promises as fs } from "fs";
+import {promises as fs} from "fs";
+import * as path from "path";
 
 async function run() {
-    const buffer = await fs.readFile("/dev/stdin");
-    const inputString = buffer.toString("utf-8");
+    const inputString = await fs.readFile("/dev/stdin", "utf-8");
     const input = (() => {
         try {
             return JSON.parse(inputString);
@@ -12,7 +12,8 @@ async function run() {
     })();
     const [, , js, ...args] = process.argv;
     // js should be of the form `input => output`
-    const func = new Function("args", "fs", `return ${js}`)(args, fs);
+    const closure = {args, fs, path};
+    const func = new Function(...Object.keys(closure), `return ${js}`)(...Object.values(closure));
     const output = await func(input);  // allow promises
     const outputString = typeof output === "string"
         ? output

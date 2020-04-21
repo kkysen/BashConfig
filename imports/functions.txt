@@ -76,3 +76,4 @@ rclone
 onPath
 commands
 win
+cleanMusicFileNames
