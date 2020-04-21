@@ -77,3 +77,4 @@ onPath
 commands
 win
 cleanMusicFileNames
+moveTo
