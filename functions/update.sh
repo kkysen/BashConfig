@@ -182,6 +182,13 @@ updateHaskell() {
 
 export -f updateHaskell
 
+updateOneDriveHardLinks() {
+    find "${ONE}" -links +1 -print0 |
+        xargs -0 --no-run-if-empty touch
+}
+
+export -f updateOneDriveHardLinks
+
 update() {
     rc
     set -x
@@ -194,6 +201,7 @@ update() {
     updateHaskell
     updateTmp
     updateLolcate
+    updateOneDriveHardLinks
     set +x
 }
 
