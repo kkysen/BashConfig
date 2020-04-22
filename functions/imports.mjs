@@ -75,7 +75,7 @@ async function getImportScript(dir, importFile) {
                 }
             }
             if (map.load) {
-                lines.push(`. "${map.to || map.from}"`); // TODO change || to ??
+                lines.push(`. "${map.to ?? map.from}"`);
             }
         }
         if (numFound === 0) {
