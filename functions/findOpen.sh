@@ -36,7 +36,7 @@ openWith() {
         opener="cd"
     fi
     # shellcheck disable=SC2086
-    recordRun $opener "${path}"
+    recordRun ${opener} "${path}"
 }
 
 mapOpenWith() {

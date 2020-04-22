@@ -2,10 +2,9 @@ lastAll() {
     local timeType="${1}"
     local findArgs="${2}"
     # shellcheck disable=SC2086
-    last -0 "${timeType}" . $findArgs
-    printf "\0"
+    last -0 "${timeType}" . ${findArgs}
     # shellcheck disable=SC2086
-    last -0 "${timeType}" . '!' \( $findArgs \)
+    last -0 "${timeType}" . '!' \( ${findArgs} \)
 }
 
 findLast() {
@@ -20,7 +19,8 @@ findLast() {
     fi
 
     # shellcheck disable=SC2086
-    mapOpenWith "${dir}" "${openArgs}" < <(cd "${dir}" && lastAll "${timeType}" "${findArgs}" | skim --read0)
+    mapOpenWith "${dir}" "${openArgs}" \
+        < <(cd "${dir}" && lastAll "${timeType}" "${findArgs}" | skim --read0)
 }
 
 export -f findLast
