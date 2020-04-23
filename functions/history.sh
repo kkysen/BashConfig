@@ -24,5 +24,4 @@ addPrompt saveHistory
 export HISTFILE="${DATA_DIR}/bash_history.txt"
 
 alias ignore=""
-alias i=ignore
-export HISTIGNORE=ignore
+export HISTIGNORE="ignore *"
