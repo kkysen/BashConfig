@@ -5,3 +5,18 @@ rwhich() {
 }
 
 export -f rwhich
+
+rwhich_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    if [[ ${i} -ne 1 ]]; then
+        return
+    fi
+    compgen -W "$(commands --path)" -- "${arg}"
+}
+
+rwhich_complete() {
+    compReply rwhich_compgen
+}
+
+complete -F rwhich_complete rwhich
