@@ -79,3 +79,4 @@ win
 cleanMusicFileNames
 moveTo
 clipboard
+npm

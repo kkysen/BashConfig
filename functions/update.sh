@@ -101,6 +101,7 @@ export -f updateYarn
 
 updateNode() {
     fnm install latest
+    transferNpmPackagesToVersion latest
 }
 
 export -f updateNode
