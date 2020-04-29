@@ -1,9 +1,9 @@
 work() {
-    fo "${WORKSPACE}" "${@}"
+    fo "${WORKSPACE}" "${*}"
 }
 
 one() {
-    fo "${ONE}" "${@}"
+    fo "${ONE}" "${*}"
 }
 
 downloads() {
