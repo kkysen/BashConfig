@@ -24,17 +24,18 @@ openWith() {
     if [[ "${dir}" == "" ]]; then
         dir="."
     fi
-    if [[ "${opener}" == "" ]]; then
-        opener=winOpen
-    fi
-
     if [[ "${dir}" != "." ]]; then
         path="${dir}/${path}"
     fi
 
-    if [[ -d "${path}" ]]; then
-        opener="cd"
+    if [[ "${opener}" == "" ]]; then
+        if [[ -d "${path}" ]]; then
+            opener="cd"
+        else
+            opener=winOpen
+        fi
     fi
+
     # shellcheck disable=SC2086
     recordRun ${opener} "${path}"
 }
