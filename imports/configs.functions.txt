@@ -2,3 +2,4 @@ dedupe
 cacheGenerated
 path
 cargo
+saveXdgUserDirs
