@@ -13,3 +13,4 @@ pkgConfig
 pyenv
 # pyenv.virtualenv
 thefuck
+deno
