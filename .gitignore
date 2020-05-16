@@ -2,6 +2,7 @@
 
 /config/*.generated.sh
 /completions/
+/functions/JetBrains
 
 __pycache__/
 
