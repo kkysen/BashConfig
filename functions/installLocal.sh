@@ -16,7 +16,7 @@ installLocal() {
         # WSL can't run a Windows exe through a symlink
         # see https://github.com/microsoft/WSL/issues/3999
         local execScriptPath="${WORKSPACE_BIN}/$(basename "${path}")"
-        printf "#! /bin/dash\nexec \"%s\" \"\${@}\"" "${path}" > "${execScriptPath}"
+        printf "#! /bin/bash\nrun \"%s\" \"\${@}\"" "${path}" > "${execScriptPath}"
     else
         ln -s "${path}" "${WORKSPACE_BIN}"
     fi
