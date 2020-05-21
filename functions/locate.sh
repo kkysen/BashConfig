@@ -40,7 +40,9 @@ locate.exe() {
     if [[ $# -eq 0 ]]; then
         win everything
     else
-        win es "${@}" | IFS=$'\r\n' map wslpath -u
+        win es "${@}" |
+            IFS=$'\r\n' map wslpath -u |
+            rg --passthru ".*rootfs" --replace ""
     fi
 }
 
