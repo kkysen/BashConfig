@@ -35,3 +35,27 @@ cargoSrc() {
 }
 
 export -f cargoSrc
+
+cargo() {
+    # shellcheck disable=SC2153
+    local rustFlags="${RUSTFLAGS}"
+    if [[ "${CARGO_NATIVE}" != "false" ]]; then
+        rustFlags="-C target-cpu=native ${rustFlags}"
+    fi
+    rustFlags="-C link-arg=-fuse-ld=lld ${rustFlags}"
+    RUSTFLAGS="${rustFlags}" command cargo "${@}"
+}
+
+export -f cargo
+
+cargo.exe() {
+    # shellcheck disable=SC2153
+    local rustFlags="${RUSTFLAGS}"
+    if [[ "${CARGO_NATIVE}" != "false" ]]; then
+        rustFlags="-C target-cpu=native ${rustFlags}"
+    fi
+    rustFlags="-C link-arg=-fuse-ld=lld ${rustFlags}"
+    RUSTFLAGS="${rustFlags}" WSLENV="${WSLENV}:RUSTFLAGS" command cargo.exe "${@}"
+}
+
+export -f cargo.exe

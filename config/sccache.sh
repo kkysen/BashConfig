@@ -1,0 +1,1 @@
+export SCCACHE_CACHE_SIZE="16G"
