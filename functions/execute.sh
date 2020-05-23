@@ -1,8 +1,12 @@
 toWinPath() {
     local path="${1}"
-    local dir=$(dirname "${path}")
+    if [[ ! "${path}" == *"/"* ]]; then
+        echo "${path}"
+        return
+    fi
+    local dir=$(dirname -- "${path}")
     if [[ -d "${dir}" ]]; then
-        wslpath -m "${path}"
+        wslpath -w "${path}"
     else
         echo "${path}"
     fi
