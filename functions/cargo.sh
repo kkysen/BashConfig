@@ -54,7 +54,11 @@ cargo.exe() {
     if [[ "${CARGO_NATIVE}" != "false" ]]; then
         rustFlags="-C target-cpu=native ${rustFlags}"
     fi
-    rustFlags="-C link-arg=-fuse-ld=lld ${rustFlags}"
+#    local linker=$(win es -case "lld-link.exe")
+#    echo "${linker}"
+#    if [[ ${linker} != "" ]]; then
+#        rustFlags="-C linker='${linker}' -C link-arg=-fuse-ld=lld ${rustFlags}"
+#    fi
     RUSTFLAGS="${rustFlags}" WSLENV="${WSLENV}:RUSTFLAGS" command cargo.exe "${@}"
 }
 
