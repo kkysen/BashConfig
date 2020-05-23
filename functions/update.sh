@@ -12,14 +12,39 @@ updateBrew() {
 
 export -f updateBrew
 
+cargoListToGitUrls() {
+    # shellcheck disable=SC2016
+    rg ".*\((.*)\):" --replace '$1' |
+        rg "(https://.*)?#.*" --replace '$1' |
+        rg "\.git" --passthru --replace ""
+}
+
+updateCargoGit() {
+    cargo install --list |
+        cargoListToGitUrls |
+        map cargo install --git
+}
+
+export -f updateCargoGit
+
+updateCargoGit.exe() {
+    win cargo install --list |
+        cargoListToGitUrls |
+        map win cargo install --git
+}
+
+export -f updateCargoGit.exe
+
 updateCargo() {
     cargo install-update --all
+    updateCargoGit
 }
 
 export -f updateCargo
 
 updateCargo.exe() {
     win cargo install-update --all
+    win updateCargoGit
 }
 
 export -f updateCargo.exe
