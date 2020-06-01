@@ -83,3 +83,4 @@ npm
 saveXdgUserDirs
 sherlock
 shodan
+pip
