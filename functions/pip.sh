@@ -1,5 +1,5 @@
-pip() {
-    python -m pip "${@}"
-}
-
-export -f pip
+#pip() {
+#    python -m pip "${@}"
+#}
+#
+#export -f pip
