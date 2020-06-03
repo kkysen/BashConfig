@@ -13,3 +13,5 @@ __pycache__/
 /home/.local/share/
 
 /home/.fonts/consolas-font-for-powerline/.git
+/home/.fonts/powerline-fonts/
+/home/.fonts/powerline-fonts.tar.xz

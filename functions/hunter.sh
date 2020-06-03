@@ -1,5 +1,7 @@
+override hunter
+
 hunter() {
-    command hunter --show-hidden "${@}"
+    _hunter --show-hidden "${@}"
 }
 
 export -f hunter
