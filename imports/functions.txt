@@ -85,3 +85,5 @@ saveXdgUserDirs
 sherlock
 shodan
 pip
+tar
+
