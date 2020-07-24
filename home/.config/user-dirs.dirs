@@ -1,7 +1,5 @@
 XDG_DESKTOP_DIR="/mnt/c/Users/Khyber/Desktop"
 XDG_DOWNLOAD_DIR="/mnt/c/Users/Khyber/Downloads"
-XDG_TEMPLATES_DIR="/home/kkysen/Templates"
-XDG_PUBLICSHARE_DIR="/home/kkysen/Public"
 XDG_DOCUMENTS_DIR="/mnt/c/Users/Khyber/OneDrive/Khyber/Documents"
 XDG_MUSIC_DIR="/mnt/c/Users/Khyber/OneDrive/Music/Phone"
 XDG_PICTURES_DIR="/mnt/c/Users/Khyber/OneDrive/Khyber/Documents/misc/Photos"
