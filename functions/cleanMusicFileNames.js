@@ -73,7 +73,7 @@ function cleanFileName(name) {
 
 function cleanFileNameOnce(fileName) {
     // oficial is Spanish
-    for (const pattern of ["audio", "lyric", "official", "edit", "oficial"]) {
+    for (const pattern of ["video", "audio", "lyric", "official", "edit", "oficial"]) {
         const match = new RegExp(pattern, "i").exec(fileName);
         if (!match) {
             continue;

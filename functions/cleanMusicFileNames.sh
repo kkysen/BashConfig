@@ -22,6 +22,7 @@ cleanMusicFileNames() {
         generate | *)
             fd -0 --base-directory "${ONE_MUSIC}" |
                 js "$(cat "${FUNCTIONS}/cleanMusicFileNames.js")" "${rename}" > /dev/null
+            bat "${rename}"
             echo "run '${FUNCNAME[0]} run' to actually rename files in '${rename}'"
             ;;
     esac
