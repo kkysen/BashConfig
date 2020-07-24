@@ -5,7 +5,6 @@ wslenv
 sshd
 aliases
 fnm
-ssh
 rust
 perl
 broot

@@ -6,3 +6,5 @@ title
 skim
 starship
 hunter
+ssh
+editor
