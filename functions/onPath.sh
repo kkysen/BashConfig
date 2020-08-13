@@ -60,6 +60,7 @@ onPath() {
     local skip=""
     local basenames=false
     local null=false
+    local onlyExecutables=""
 
     while [[ $# -gt 0 ]]; do
         case "${1}" in
@@ -75,6 +76,9 @@ onPath() {
                 ;;
             --null | -0)
                 null=true
+                ;;
+            --executables)
+                onlyExecutables="--follow --type executable"
                 ;;
         esac
         shift
@@ -96,6 +100,7 @@ onPath() {
     fi
 
     # for more correctness, could use --follow --type executable for fd, but much slower b/c need to stat every file
+    # shellcheck disable=SC2086
     printf "%s" "${PATH}" |
         tr ':' '\0' |
         "${filter[@]}" |
@@ -103,6 +108,7 @@ onPath() {
             fd --hidden \
             --no-ignore \
             --case-sensitive \
+            $onlyExecutables \
             --exact-depth 1 \
             -0 . |
         "${basename[@]}" |
