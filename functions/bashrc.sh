@@ -1,9 +1,10 @@
 # TODO allow reloading scripts in ${CONFIGS} as well, not just ${FUNCTIONS}
 
 reloadScript() {
-    # if given a file in ${FUNCTIONS}, reload only that file
-    local file="${1}"
-    local path="${FUNCTIONS}/${file}"
+    # if given a file in ${dir}, reload only that file
+    local dir="${1}"
+    local file="${2}"
+    local path="${dir}/${file}"
     if [[ ! -f "${path}" ]]; then
         echo "\`${path}\` does not exist"
         return 1
@@ -12,7 +13,13 @@ reloadScript() {
         echo "\`${path}\` is not a bash script ending in .sh"
         return 1
     fi
+    # shellcheck disable=SC1090
     . "${path}"
+}
+
+reloadFunctionScript() {
+    local file="${1}"
+    reloadScript "${FUNCTIONS}" "${file}"
 }
 
 bashrc() {
@@ -39,14 +46,14 @@ bashrc() {
             if [[ "${file}" == "" ]]; then
                 return 1
             fi
-            reloadScript "${file}"
+            reloadFunctionScript "${file}"
             ;;
         "-h" | "-help" | "--help")
             echo >&2 "Usage: ${FUNCNAME[0]} [edit | code | cd | go | func | functions | config | <bash script in ${FUNCTIONS}>]"
             return 1
             ;;
         *.sh)
-            reloadScript "${arg}"
+            reloadFunctionScript "${arg}"
             ;;
         *)
             local ide="${arg}"
