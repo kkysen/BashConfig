@@ -1,6 +1,8 @@
 map() {
+    local i=0
     while read -r line; do
-        "${@}" "${line}"
+        i=${i} "${@}" "${line}"
+        ((i++))
     done
 }
 
