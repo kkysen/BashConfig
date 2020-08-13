@@ -1,7 +1,7 @@
 tar-xz() {
     local dir="${1}"
     local name=$(basename "${dir}")
-    tar cfJ "${name}.tar.xz" "${dir}"
+    tar cf - "${dir}" | xz --threads 0 --verbose > "${name}.tar.xz"
 }
 
 export -f tar-xz
