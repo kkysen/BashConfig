@@ -88,3 +88,4 @@ pip
 tar
 just
 dependencies
+wsl
