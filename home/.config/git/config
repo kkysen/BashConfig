@@ -1,18 +1,36 @@
 [user]
 	name = Khyber Sen
 	email = kkysen@gmail.com
+
 [core]
 	autocrlf = false
 	ignorecase = false
 	editor = code --wait
+
 [credential]
 	helper = manager
 	helper = !/usr/lib/jvm/zulu-13-amd64/bin/java -Ddebug=false -Djava.net.useSystemProxies=true -jar /home/kkysen/.linuxbrew/Cellar/git-credential-manager/2.0.4_1/libexec/git-credential-manager-2.0.4.jar
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [alias]
 	st = status
 
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
