@@ -11,4 +11,4 @@ matches:
         type: shell
         params:
           shell: wsl
-          cmd: "echo -n $(dig @resolver1.opendns.com ANY myip.opendns.com +short)"
+          cmd: ". /mnt/c/Users/Khyber/workspace/Bash/functions/ip.sh && myip"
