@@ -1,6 +1,6 @@
 win() {
     local exe="${1}"
-    "${exe}.exe" "${@:2}"
+    "${exe}.exe" "${@:2}" | sd --string-mode '\r' ''
 }
 
 export -f win
