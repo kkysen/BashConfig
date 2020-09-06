@@ -1,6 +1,7 @@
 myip() {
-    curl -s "https://api6.ipify.org"
-    echo
+    # much faster (3-5x) than `curl`ing a website
+    # since this just does a DNS lookup
+    dig @resolver1.opendns.com ANY myip.opendns.com +short
 }
 
 geoip() {
