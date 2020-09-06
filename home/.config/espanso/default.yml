@@ -17,3 +17,18 @@ matches:
 
   - trigger: ":me"
     replace: "Khyber Sen"
+
+  - trigger: ":github"
+    replace: "https://github.com/kkysen"
+
+  - trigger: ":resume"
+    replace: "https://github.com/kkysen/me/blob/master/Resume%20-%20Khyber%20Sen.pdf"
+
+  - trigger: ":linkedin"
+    replace: ""
+
+  - trigger: ":facebook"
+    replace: "https://www.facebook.com/kkysen"
+
+  - trigger: ":fb"
+    replace: "https://www.facebook.com/kkysen"
