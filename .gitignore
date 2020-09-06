@@ -10,7 +10,10 @@ __pycache__/
 /home/.config/configstore
 
 # seems like this should go in CACHE_DIR
-/home/.local/share/
+/home/.local/share/*
+!/home/.local/share/espanso
+/home/.local/share/espanso/*
+!/home/.local/share/espanso/packages
 
 /home/.fonts/consolas-font-for-powerline/.git
 /home/.fonts/powerline-fonts/
