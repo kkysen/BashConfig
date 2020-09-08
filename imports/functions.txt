@@ -52,7 +52,7 @@ history
 chmodAll
 google
 viki
-yt2mp3
+youtube
 vidcloud
 installLocal
 map

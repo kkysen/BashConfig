@@ -20,7 +20,8 @@ googleAndThen() {
 }
 
 googleSearchAndThen() {
-    local name="${FUNCNAME[1]}"
+    local callerIndex="${callerIndex:-1}"
+    local name="${FUNCNAME[${callerIndex}]}"
     local prefix="${1}"
     local func="${2}"
     local subCommand="${3}"
