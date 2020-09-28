@@ -1,6 +1,7 @@
 [user]
 	name = Khyber Sen
 	email = kkysen@gmail.com
+	username = kkysen
 
 [core]
 	autocrlf = false
