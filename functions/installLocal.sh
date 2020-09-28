@@ -24,6 +24,10 @@ installLocal() {
 
 export -f installLocal
 
+li() {
+    installLocal "${@}"
+}
+
 uninstallLocal() {
     local program="${1}"
     rm "${WORKSPACE_BIN}/$(basename "${program}")"
