@@ -8,6 +8,7 @@ __pycache__/
 
 # DATA_DIR
 /home/.config/configstore
+/home/.config/so/config.yml
 
 # seems like this should go in CACHE_DIR
 /home/.local/share/*
