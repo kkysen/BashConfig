@@ -3,6 +3,9 @@ wsl() {
     local self="${WSL_DISTRO_NAME}"
     local cmd="${1}"
     case "${cmd}" in
+        --help)
+            win wsl --help
+            ;;
         export|setdefault|terminate|unregister|upgrade)
             win wsl "--${cmd}" "${self}" "${@:2}"
             ;;
