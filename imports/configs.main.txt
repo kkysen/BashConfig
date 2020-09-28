@@ -12,6 +12,7 @@ brew
 pkgConfig
 pyenv
 # pyenv.virtualenv
+pyenvPost
 thefuck
 deno
 sccache

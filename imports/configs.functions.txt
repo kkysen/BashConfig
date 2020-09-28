@@ -1,5 +1,7 @@
+map
 dedupe
 cacheGenerated
 path
 cargo
 saveXdgUserDirs
+pyenvShims
