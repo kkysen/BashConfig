@@ -15,20 +15,20 @@ matches:
         params:
           format: "%m/%d/%Y"
 
-  - trigger: "@me"
+  - trigger: "$me"
     replace: "Khyber Sen"
 
-  - trigger: "@github"
+  - trigger: "$github"
     replace: "https://github.com/kkysen"
 
-  - trigger: "@resume"
+  - trigger: "$resume"
     replace: "https://github.com/kkysen/me/blob/master/Resume%20-%20Khyber%20Sen.pdf"
 
-  - trigger: "@linkedin"
+  - trigger: "$linkedin"
     replace: "https://www.linkedin.com/in/khyber-sen-9295a5143"
 
-  - trigger: "@facebook"
+  - trigger: "$facebook"
     replace: "https://www.facebook.com/kkysen"
 
-  - trigger: "@fb"
+  - trigger: "$fb"
     replace: "https://www.facebook.com/kkysen"
