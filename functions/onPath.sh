@@ -1,96 +1,61 @@
-onPathMeta() {
-    # It'd be much easier if I could have a no-op pipe.
-    # `tee` and `cat` work for this, but they're slow.
-    # Normally this is okay, but since this can be used for completion,
-    # speed is important.
-    # Ideally, bash would have a no-op pipe that just dup2()s stdin to stdout.
-    # Thus, I have to generate the source code and `eval` it.
-    # Sometimes this is faster, sometimes it's slower.
-
-    local skip=""
-    local basenames=false
-    local null=false
-
-    while [[ $# -gt 0 ]]; do
-        case "${1}" in
-            --filenames)
-                basenames=true
-                ;;
-            --skip)
-                skip="${2}"
-                shift
-                ;;
-            --skip-default)
-                skip="WINDOWS|Program Files|mingw"
-                ;;
-            --null | -0)
-                null=true
-                ;;
-        esac
-        shift
-    done
-
-    local xargs=" | xargs --no-run-if-empty -0"
-
-    echo -n 'printf "%s" "${PATH}"'
-    echo -n " | tr ':' '\0'"
-    if [[ "${skip}" != "" ]]; then
-        echo -n " | rg --null-data --invert-match '${skip}'"
-    fi
-    echo -n "${xargs}"
-    echo -n " fd --hidden --no-ignore --case-sensitive --exact-depth 1"
-    if ${basenames} || ${null}; then
-        echo -n " -0"
-    fi
-    echo -n " ."
-    if ${basenames}; then
-        echo -n "${xargs}"
-        echo -n " basename --multiple"
-        if ${null}; then
-            echo -n " --zero"
-        fi
-    fi
-}
-
-onPathEval() {
-    eval "$(onPathMeta "${@}")"
-}
-
 onPath() {
-    local skip=""
+    local skipPaths=""
+    local filter=""
     local basenames=false
     local null=false
     local onlyExecutables=""
+    local noSymlinks="--follow"
+    local listDetails="-0"
+    local extension=""
 
     while [[ $# -gt 0 ]]; do
         case "${1}" in
             --filenames)
                 basenames=true
                 ;;
-            --skip)
-                skip="${2}"
+            --skip-paths)
+                skipPaths="${2}"
                 shift
                 ;;
-            --skip-default)
-                skip="WINDOWS|Program Files|mingw"
+            --skip-paths-default)
+                skipPaths="WINDOWS|Program Files|mingw"
+                ;;
+            --filter)
+                filter="${2}"
+                shift
                 ;;
             --null | -0)
                 null=true
                 ;;
             --executables)
-                onlyExecutables="--follow --type executable"
+                onlyExecutables="--type executable --type file"
+                ;;
+            --no-symlinks)
+                noSymlinks=""
+                ;;
+            --list-details)
+                listDetails="--list-details"
+                ;;
+            --extension)
+                extension+=" --extension ${2}"
+                shift
                 ;;
         esac
         shift
     done
 
     local id=tee
-    local filter=("${id}")
+    local pathFilter=("${id}")
+    local exeFilter=("${id}")
     local basename=("${id}")
     local newlines=("${id}")
 
-    if [[ "${skip}" != "" ]]; then
-        filter=(rg --null-data --invert-match "${skip}")
+    if [[ "${skipPaths}" != "" ]]; then
+        pathFilter=(rg --null-data --invert-match "${skipPaths}")
+    fi
+    if [[ "${filter}" != "" ]]; then
+        # shellcheck disable=SC2206
+        exeFilter=(rg --null-data ${filter[@]})
     fi
     if ${basenames}; then
         basename=(xargs --no-run-if-empty -0 basename --multiple --zero)
@@ -103,16 +68,37 @@ onPath() {
     # shellcheck disable=SC2086
     printf "%s" "${PATH}" |
         tr ':' '\0' |
-        "${filter[@]}" |
+        "${pathFilter[@]}" |
         xargs --no-run-if-empty -0 \
             fd --hidden \
             --no-ignore \
             --case-sensitive \
-            $onlyExecutables \
+            ${noSymlinks} \
+            ${onlyExecutables} \
+            ${extension} \
             --exact-depth 1 \
-            -0 . |
+            ${listDetails} \
+            . |
+        "${exeFilter[@]}" |
         "${basename[@]}" |
         "${newlines[@]}"
 }
 
 export -f onPath
+
+onPathBySize() {
+    # this shellcheck that says du doesn't read from stdin is wrong
+    # du can read from stdin w/ --files0-from -
+    # shellcheck disable=SC2216
+    onPath --executables -0 "${@}" |
+        du --dereference --files0-from - --bytes --human-readable |
+        sort -k1 --human-numeric-sort
+}
+
+export -f onPathBySize
+
+onPathBySizeLinux() {
+    onPathBySize --skip-paths-default --filter '-v \.(exe|dll)'
+}
+
+export -f onPathBySizeLinux
