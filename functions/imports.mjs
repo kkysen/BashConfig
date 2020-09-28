@@ -1,9 +1,9 @@
-import {promises as fs} from "fs";
+import {promises as fsp} from "fs";
 
 async function existsAnd(path, statsFunc) {
     try {
-        const stats = await fs.stat(path);
-        return statsFunc(stats);
+        const stats = await fsp.stat(path);
+        return await statsFunc(stats);
     } catch (e) {
         return false;
     }
@@ -28,7 +28,7 @@ async function getImportScript(dir, importFile) {
 
     const completionsDir = process.env.COMPLETIONS;
 
-    const contents = await fs.readFile(`${importFile}`, "utf8");
+    const contents = await fsp.readFile(`${importFile}`, "utf8");
     const names = contents.split("\n")
         .map(line => line.split("#")[0].trim())
         .filter(notEmpty)
@@ -69,7 +69,10 @@ async function getImportScript(dir, importFile) {
             }
             numFound++;
             if (map.to) {
-                const cached = await existsAnd(map.to, stats => daysOld(stats) < maxDaysOld);
+                const cached = await existsAnd(map.to, async toStats => {
+                    const fromStats = await fsp.stat(map.from);
+                    return (fromStats.mtime < toStats.mtime) && (daysOld(stats) < maxDaysOld);
+                });
                 if (!cached) {
                     lines.push(`"${map.from}" > "${map.to}"`);
                 }
