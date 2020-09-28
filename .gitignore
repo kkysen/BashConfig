@@ -9,6 +9,7 @@ __pycache__/
 # DATA_DIR
 /home/.config/configstore
 /home/.config/so/config.yml
+/home/.config/rclone/rclone.conf
 
 # seems like this should go in CACHE_DIR
 /home/.local/share/*
