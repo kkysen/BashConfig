@@ -9,6 +9,9 @@ just_compgen() {
     local arg="${2}"
     if [[ ${i} -eq 1 ]]; then
         compgen -W "$(just --summary)" -- "${arg}"
+        compgen -W "$(just --list | rg alias | awk '{print $1}')" -- "${arg}"
+    else
+        compgen -A file -- "${arg}"
     fi
 }
 
@@ -16,5 +19,5 @@ just_complete() {
     compReply just_compgen
 }
 
-complete -F just_complete just
-complete -F just_complete j
+complete -o filenames -F just_complete just
+complete -o filenames -F just_complete j
