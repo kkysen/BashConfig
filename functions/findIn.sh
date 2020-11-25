@@ -15,8 +15,29 @@ misc() {
 }
 
 music() {
-    findLast accessed "${ONE_MUSIC}" "-type f" "${*}"
+    local timeType="${1}"
+    if [[ "${timeType}" == "" ]]; then
+        timeType=accessed
+    fi
+    tryRestoreMusicOrder
+    findLast "${timeType}" "${ONE_MUSIC}" "-type f -name *.mp3" "${*:2}"
 }
+
+music_compgen() {
+    local i="${1}"
+    local arg="${2}"
+    case ${i} in
+        1)
+            compgen -W "$(last --times)" -- "${arg}"
+            ;;
+    esac
+}
+
+music_complete() {
+    compReply music_compgen
+}
+
+complete -F music_complete music
 
 video() {
     findLast accessed "${ONE_VIDEO}" "${*}"
