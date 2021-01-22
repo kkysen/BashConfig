@@ -1,24 +1,25 @@
+
 jetBrainsIdePaths() {
     local dir="${FUNCTIONS}/JetBrains"
     # shellcheck disable=SC2016
-    rg \
-        --no-filename \
-        --no-line-number \
-        -0 \
-        'start "" (.*) %\*' \
-        --replace '$1' \
-        "${dir}" |
-        sed 's/\r//' |
+    rg --no-filename --no-line-number 'start' "${dir}" |
+        rg '(C:.*\.exe)' --only-matching --replace '$1' |
         map wslpath -u
 }
+
+export -f jetBrainsIdePaths
 
 jetBrainsIdePathToName() {
     map basename | sed 's/\([^64]*\)\(64\)\?.exe/\1/'
 }
 
+export -f jetBrainsIdePathToName
+
 jetBrainsIdeNames() {
     jetBrainsIdePaths | jetBrainsIdePathToName
 }
+
+export -f jetBrainsIdeNames
 
 jetBrainsIdeSelect() {
     local ide="${1}"
@@ -38,6 +39,8 @@ jetBrainsIdeSelect() {
     echo "${path}"
 }
 
+export -f jetBrainsIdeSelect
+
 jetBrainsIdeExact() {
     local ide="${1}"
     local path=$(jetBrainsIdeSelect "${ide}")
@@ -47,6 +50,8 @@ jetBrainsIdeExact() {
     fi
     guiAt "${path}" "${@:2}"
 }
+
+export -f jetBrainsIdeExact
 
 jetBrainsIde() {
     local ide="${1}"
@@ -65,9 +70,13 @@ jetBrainsIde() {
     fi
 }
 
+export -f jetBrainsIde
+
 jetBrainsIdeByCaller() {
     jetBrainsIdeExact "${FUNCNAME[1]}" "${@}"
 }
+
+export -f jetBrainsIdeByCaller
 
 idea() {
     jetBrainsIdeByCaller "${@}"
@@ -124,6 +133,7 @@ export -f jetBrainsIde
 export -f idea
 export -f clion
 export -f webStorm
+export -f pyCharm
 export -f rider
 export -f androidStudio
 export -f phpStorm
